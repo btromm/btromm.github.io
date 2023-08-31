@@ -2,25 +2,24 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: Visiting Researcher at <a href='https://hedonia.kringelbach.org'>Centre for Eudaimonia & Human Flourishing</a>
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: pfp.jpeg
   image_circular: false # crops the image to make it circular
   address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
 
-news: true  # includes a list of news items
-latest_posts: true  # includes a list of the newest posts
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true  # includes social icons at the bottom of the page
+news: falses  # includes a list of news items
+latest_posts: false # includes a list of the newest posts
+selected_papers: false # includes a list of papers marked as "selected={true}"
+social: false  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am primarily interested in the scientific study of consciousness, artificial intelligence, and complex/self-organizing systems, and how we can leverage this understanding to treat mental health conditions and enhance how we interact and live in this world.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+As a visiting researcher at the Centre for Eudaimonia and Human Flourishing at the University of Oxford, I explore the effects of chronic use of ayahuasca on the functional and hierarchical organization of the brain, using whole-brain modeling, multimodal neuroimaging, and dynamical systems and complexity approaches. I am passionate about advancing the scientific understanding of psychedelics and (altered states of) consciousness, and their implications for mental health and well-being.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I am also pursuing a master's degree in cognitive and clinical neuroscience at Maastricht University. I have a bachelor's degree in neuroscience from Brandeis University, where I graduated cum laude and received multiple scholarships for academic excellence. I have developed strong skills in computational neuroscience and multimodal neuroimaging analysis, and have contributed to several research projects and publications in the field.
+
+**Key interests:** computational neuroscience, artificial intelligence, neuroimaging, human sensory perception, subjective experience & data, consciousness science
