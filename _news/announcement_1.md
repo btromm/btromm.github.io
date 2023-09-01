@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Received the Usona Institute scholarship! 🎉
+Received the <a href='https://www.usonainstitute.org/scholarships'>Usona Institute</a> scholarship! 🎉
