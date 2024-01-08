@@ -2,7 +2,7 @@
 layout: post
 title: sourdough
 date: 2024-01-08 14:30:00
-description: an example of a blog post with twitter
+description: reflections on labor
 tags: poetry
 categories:
 ---
