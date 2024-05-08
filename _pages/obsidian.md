@@ -1,12 +1,8 @@
 ---
 layout: page
-permalink: https://btromm.vercel.app/
-title: garden
+permalink: /notes/
+title: notes
 description: Digital Garden
 nav: true
 nav_order: 5
 ---
-
-<script type="text/javascript">
-            window.location.href = "https://btromm.vercel.app/"
-        </script>
