@@ -10,7 +10,7 @@ email: bobby.tromm@gmail.com
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Computational neuroscientist interested in using altered states to understand brain dynamics.
 footer_text: >
-keywords: computational neuroscience, psychedelics, whole-brain models, dynamics, hierarchy, altered states, consciousness  # add your own keywords or leave empty
+keywords: computational neuroscience, psychedelics, whole-brain models, dynamics, hierarchy, altered states, consciousness, artificial intelligence  # add your own keywords or leave empty
 
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🧠  # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
@@ -72,7 +72,7 @@ github_username: btromm # your GitHub user name
 gitlab_username: # your GitLab user name
 twitter_username: b_tromm # your Twitter handle
 mastodon_username: # your mastodon instance+username in the format instance.tld/@username
-linkedin_username: # your LinkedIn user name
+linkedin_username: btromm # your LinkedIn user name
 telegram_username: # your Telegram user name
 scholar_userid: # your Google Scholar ID
 semanticscholar_id: # your Semantic Scholar ID
