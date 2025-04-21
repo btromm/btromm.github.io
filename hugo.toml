@@ -77,7 +77,7 @@ url = "/publications"
 
 [[params.menu]]
 name = "cv"
-url = "/cv"
+url = "/pdf/cv.pdf"
 
 # Syntax highlight on code blocks
 [markup]
