@@ -1,0 +1,367 @@
+:root {
+  --img-border-radius: 4px;
+  --img-border-color: rgba(255, 255, 255, 0.1);
+  --main-width: 900px;
+}
+
+/* CSS-only sticky TOC with scroll-linked animation */
+.content-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: var(--main-width);
+}
+
+.css-sticky-toc {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 40px); /* Increased margin to move TOC further right */
+  width: 230px;
+  height: 100%;
+  z-index: 10;
+}
+
+/* Use a fallback approach that works more reliably */
+.toc-container {
+  position: sticky;
+  margin-top: 50vh; /* Start in middle of viewport */
+  transform: translateY(-50%); /* Adjust to center the TOC itself */
+  padding: 0.5rem 1rem;
+  /* border-left: 1px solid var(--content-secondary); */ /* Removed border */
+  background-color: var(--background);
+  transition: top 0.2s ease, opacity 0.5s ease;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Style the TOC with lines instead of bullet points */
+.toc-container ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.3rem 0;
+}
+
+/* Depth-based TOC connectors */
+.toc-container > nav > ul > li { --depth: 1; }
+.toc-container > nav > ul > li > ul > li { --depth: 2; }
+.toc-container > nav > ul > li > ul > li > ul > li { --depth: 3; }
+.toc-container > nav > ul > li > ul > li > ul > li > ul > li { --depth: 4; }
+
+/* Consolidated TOC item styles */
+.toc-container li {
+  position: relative;
+  margin: 0.4rem 0;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity .3s ease, transform .3s ease;
+  transition-delay: calc(var(--depth) * 0.1s);
+}
+
+.toc-container li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  height: 1px;
+  width: calc(var(--depth) * 1rem);
+  background-color: var(--content-secondary);
+  transform: translateY(-50%);
+}
+
+/* Consolidated TOC link styles */
+.toc-container a,
+.toc-container li > a {
+  display: inline-block;
+  margin-left: calc(var(--depth) * 1rem + 0.5rem);
+  position: relative;
+  color: var(--content-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease, font-weight 0.2s ease;
+}
+
+.toc-container li > a:hover {
+  color: var(--primary);
+  transform: translateX(3px);
+}
+
+.toc-container li > a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.toc-container li > a:hover::after {
+  width: 100%;
+}
+
+/* Hover & scroll animation effects */
+.toc-container:hover li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes slideFade {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.toc-container li.is-visible {
+  opacity: 1;
+  animation: slideFade .4s ease forwards;
+  animation-delay: calc(var(--depth) * 0.1s);
+}
+
+/* Active TOC link styles */
+.toc-container a.toc-active {
+  color: var(--primary);
+  font-weight: 500;
+  transform: translateX(3px);
+}
+
+.toc-container a.toc-active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--primary);
+}
+
+/* On scroll, the browser will use this with higher specificity */
+html:not([data-scroll='0']) .toc-container {
+  top: 15vh; /* Move to top after scrolling */
+  transition: top 0.5s ease, opacity 0.5s ease;
+}
+
+.toc-container:hover {
+  opacity: 1;
+}
+
+/* Make sure TOC doesn't overlap with content on narrower screens */
+@media screen and (max-width: 1280px) {
+  .css-sticky-toc {
+    display: none;
+  }
+}
+
+/* Default layout for main content so it takes up normal width */
+.main-content {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Add a small script to track scroll position */
+@media screen {
+  @keyframes add-scroll-listener {
+    from { opacity: 0.99; }
+    to { opacity: 1; }
+  }
+
+  html {
+    animation: add-scroll-listener 0.0001s;
+    animation-fill-mode: forwards;
+  }
+}
+
+/* Publication styles */
+/* Ensure publications inherit the main-content and content-wrapper styles */
+
+.publication-entry {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+  width: 100%;
+}
+
+.publication-date {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.publication-citations {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+}
+
+.publication-title {
+  position: relative;
+  text-decoration: none;
+}
+
+.publication-title:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: width 0.15s ease;
+}
+
+.publication-title:hover:after {
+  width: 100%;
+}
+
+.publication-meta {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+/* 
+.publication-meta .author {
+  margin-right: 0.5rem;
+} */
+
+.publication-summary {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.publication-links {
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.publication-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.publication-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.publication-item {
+  display: flex;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.thumbnail {
+  flex: 0 0 230px;
+  margin-right: 2rem;
+}
+
+.publication-thumbnail img,
+.thumbnail img {
+  width: 100%;
+  border-radius: var(--img-border-radius);
+  border: 1px solid var(--img-border-color);
+}
+
+.publication-content {
+  flex: 1;
+}
+
+.publication-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.year {
+  font-size: 3rem;
+  color: rgba(100, 150, 255, 0.7); /* Changed from rgba(255, 255, 255, 0.5) to a blue shade */
+  flex-shrink: 0;
+}
+
+h2.title {
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin: 0 1rem 0.5rem 0;
+  line-height: 1.2;
+  flex: 1;
+}
+
+.author {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.periodical {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.periodical em {
+  font-style: italic;
+}
+
+.links {
+  margin-top: 1.5rem;
+}
+
+.button {
+  display: inline-flex;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid rgba(100, 150, 255, 0.4);
+  background-color: rgba(100, 150, 255, 0.1);
+  border-radius: 4px;
+  text-decoration: none;
+  margin-right: 1rem;
+  transition: all 0.2s;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.button:hover {
+  background: rgba(100, 150, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.citations-btn {
+  position: relative;
+}
+
+.citation-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  font-size: 0.8rem;
+  height: 1.2rem;
+  min-width: 1.2rem;
+  margin-left: 0.5rem;
+  padding: 0 0.2rem;
+}
+
+/* Gilles Castel style breadcrumbs */
+.breadcrumbs-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--content-secondary);
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  font-family: var(--font-mono);
+}
+
+.breadcrumbs-back a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  color: var(--content-secondary);
+}
+
+.breadcrumbs-meta {
+  font-size: 0.85rem;
+  color: var(--content-secondary);
+}

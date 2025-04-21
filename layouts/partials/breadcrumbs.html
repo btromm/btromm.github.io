@@ -1,0 +1,21 @@
+{{- if and (or .Site.Params.breadcrumbs.enabled (not (isset .Site.Params.breadcrumbs "enabled"))) (.IsPage) -}}
+<div class="breadcrumbs-container">
+  <div class="breadcrumbs-back">
+    {{- $section := .Section -}}
+    {{- if $section -}}
+      {{- with .Site.GetPage $section -}}
+        <a href="{{ .RelPermalink }}">← all {{ lower .Title }}</a>
+      {{- end -}}
+    {{- else -}}
+      <a href="/">← HOME</a>
+    {{- end -}}
+  </div>
+  
+  <div class="breadcrumbs-meta">
+    {{- with .Date -}}
+      {{ .Format "Jan 2, 2006" }} • 
+    {{ end }}
+    {{ .ReadingTime }} min read
+  </div>
+</div>
+{{- end -}}
