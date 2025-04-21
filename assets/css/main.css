@@ -296,7 +296,7 @@ footer a {
 
 .social-icons {
   padding: 12px 0;
-  margin-bottom: var(--social-icons-bottom-margin)
+  /* margin-bottom: var(--social-icons-bottom-margin) */
 }
 
 .social-icons a {

@@ -1,6 +1,12 @@
 {{/* Header */}}
 
+
 <div class="header">
+
+    <link rel="alternate"
+      type="application/rss+xml"
+      href="{{.Site.BaseURL }}/index.xml"
+      title="{{ .Site.Title }}">
 
     {{ if or (not (.IsPage)) (not (eq .Section "posts")) .IsHome }}
 
