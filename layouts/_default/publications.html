@@ -1,0 +1,41 @@
+{{ define "main" }}
+
+<div>
+  {{/* Main content container */}}
+  <div class="content-wrapper">
+    <div class="main-content">
+      <div class="single-intro-container">
+        <h1 class="single-title">{{ .Title }}</h1>
+      </div>
+      <div class="single-content">
+        {{ range .Params.publications }}
+        <div class="publication-entry">
+            <div>
+            <div class="publication-date">{{ .year }}</div>
+            <div class="publication-citations" data-doi="{{ .url }}">Loading...</div>
+            <img src="{{ .thumbnail }}" alt="Thumbnail for {{ .title }}">
+            </div>
+            
+            <div>
+            <a href="{{ .url }}" class="publication-title">{{ .title }}</a>
+            <div class="publication-meta">
+                <div class="author">{{ .author }}</div>
+                <div class="periodical"><em>{{ .periodical }}</em>, {{ .year }}</div>
+            </div>
+            <div class="publication-summary">{{ .summary }}</div>
+            {{ if .pdf }}
+            <div class="publication-links">
+                <a href="{{ .pdf }}" class="pdf-link" target="_blank">PDF</a>
+            </div>
+            {{ end }}
+            </div>
+        </div>
+        {{ end }}
+
+        <!-- Load the citations script -->
+        <script src="/js/citations.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

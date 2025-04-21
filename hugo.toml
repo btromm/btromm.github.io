@@ -1,5 +1,4 @@
-
-baseURL = 'https://example.org/'
+baseURL = 'https://btromm.github.io/'
 languageCode = 'en-us'
 title = 'bobby tromm'
 theme = 'typo'
@@ -16,21 +15,27 @@ tag = 'tags'
 
 [params]
 # Meta description
-description = "a blog on consciousness"
+description = "a blog about neuroscience, complexity, intelligence, and consciousness"
 
 # Appearance settings
 theme = 'auto'
 colorPalette = 'default'
-hideHeader = false
+hideHeader = true # Hide header on home page
+showTags = true
+
+showFooter = true
+footerContent = "copyright &copy; 2025. made with [hugo](https://gohugo.io/) and [typo](https://github.com/tomfran/typo)"
 
 # Intro on main page, content is markdown
 homeIntroTitle = ''
 homeIntroContent = """
 i'm a neuroscientist interested in how brains interact with consciousness.
+
+this site is a work in progress. i am currently migrating from my previous site using Jekyll to this new site, using [hugo](https://gohugo.io). some links may be broken, and some content may be missing. please bear with me as i work on it.
 """
 
 # Collection to display on home
-homeCollectionTitle = 'posts'
+homeCollectionTitle = 'recent'
 homeCollection = 'posts'
 
 # Lists parameters
@@ -41,7 +46,7 @@ listDateFormat = '2 Jan 2006'
 # Breadcrumbs
 [params.breadcrumbs]
 enabled = true
-showCurrentPage = true
+showCurrentPage = false
 home = "Home"
 
 # Social icons
@@ -62,7 +67,6 @@ name = "github"
 url = "https://github.com/btromm"
 
 # Main menu pages
-
 [[params.menu]]
 name = "posts"
 url = "/posts"
@@ -75,19 +79,21 @@ url = "/publications"
 name = "cv"
 url = "/cv"
 
-[[params.menu]]
-name = "about"
-url = "/about"
-
 # Syntax highlight on code blocks
 [markup]
 [markup.highlight]
 style = 'algol'
 
+# Table of contents configuration
+[markup.tableOfContents]
+endLevel = 4   # Include headings up to h4
+ordered = false
+startLevel = 2
+
 # Giscus comments
 [params.giscus]
 enable = false
-repo = "user/repo"
+repo = "btromm/btromm.github.io"
 repoid = "repoId"
 category = "General"
 categoryid = "categoryId"
