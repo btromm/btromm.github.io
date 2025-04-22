@@ -1,5 +1,9 @@
 {{ define "main" }}
 
+{{ if not .IsHome }}
+{{ partial "breadcrumbs.html" . }}
+{{ end }}
+
 <div>
   {{/* Main content container */}}
   <div class="content-wrapper">
@@ -23,9 +27,14 @@
                 <div class="periodical"><em>{{ .periodical }}</em>, {{ .year }}</div>
             </div>
             <div class="publication-summary">{{ .summary }}</div>
-            {{ if .pdf }}
+            {{ if or .pdf .code }}
             <div class="publication-links">
-                <a href="{{ .pdf }}" class="pdf-link" target="_blank">PDF</a>
+              {{if .pdf }}
+                <a href="{{ .pdf }}" class="publication-link" target="_blank">PDF</a>
+              {{ end }}
+              {{ if .code }}
+                <a href="{{ .code }}" class="publication-link" target="_blank">Code</a>
+              {{ end }}
             </div>
             {{ end }}
             </div>

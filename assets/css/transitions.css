@@ -1,0 +1,54 @@
+/* Page Transition Animations */
+body.transition-enabled {
+  /* Base transition settings */
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  transition-duration: 500ms;
+}
+
+body.page-transition {
+  /* During transition, fade out the content */
+  opacity: 0;
+}
+
+/* Element transition animations for entering */
+.transition-enabled .content *:not(html):not(body) {
+  transition: transform 300ms ease-out, opacity 500ms ease;
+  transition-delay: var(--transition-delay, 0ms);
+}
+
+/* Optional: Staggered transitions for elements entering the page */
+@media (prefers-reduced-motion: no-preference) {
+  body.page-transition .content * {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  /* Element appear animations after transition completes */
+  .transition-enabled:not(.page-transition) h1 { --transition-delay: 50ms; }
+  .transition-enabled:not(.page-transition) h2, 
+  .transition-enabled:not(.page-transition) h3 { --transition-delay: 75ms; }
+  .transition-enabled:not(.page-transition) p { --transition-delay: 100ms; }
+  .transition-enabled:not(.page-transition) .header,
+  .transition-enabled:not(.page-transition) .main,
+  .transition-enabled:not(.page-transition) footer { --transition-delay: 0ms; }
+  
+  /* Staggered element transitions */
+  .transition-enabled:not(.page-transition) img { --transition-delay: 200ms; }
+  .transition-enabled:not(.page-transition) .toc { --transition-delay: 250ms; }
+  .transition-enabled:not(.page-transition) .back-to-top { --transition-delay: 300ms; }
+}
+
+/* Disable transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .transition-enabled,
+  .transition-enabled .content *:not(html):not(body) {
+    transition: none !important;
+  }
+  
+  body.page-transition,
+  body.page-transition .content * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

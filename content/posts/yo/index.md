@@ -10,6 +10,11 @@ math: true
 tags: ["fake", "news"]
 ---
 
+
+$$
+x + y = z
+$$
+
 ## Heading 1
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec auctor ipsum. Quisque placerat nibh in libero tristique mollis. Vestibulum quis ante at nisi luctus faucibus. Phasellus sodales lectus eget nunc commodo pulvinar. Vestibulum faucibus aliquet odio quis vestibulum. Suspendisse cursus tristique tellus. Donec eros felis, efficitur eu laoreet ultricies, dignissim ut libero. Phasellus pellentesque, velit sed aliquam tempor, sapien urna pulvinar urna, ac volutpat lectus ligula mollis tellus. In sed ipsum interdum, pulvinar elit ut, pretium elit. Vivamus gravida sagittis laoreet. Donec sodales vitae velit non maximus. Phasellus vehicula molestie imperdiet. Maecenas gravida a augue in congue. Suspendisse sit amet ligula vel urna pellentesque pulvinar sed et lectus.
 
