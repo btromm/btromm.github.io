@@ -56,11 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Navigation function
   async function navigateTo(url, addToHistory = true) {
     try {
-      // Start the page transition animation
+      // Add class to body but no delay needed for instantaneous change
       document.body.classList.add('page-transition');
-      
-      // Add a small delay to allow the animation to begin
-      await new Promise(resolve => setTimeout(resolve, 300));
       
       // Fetch the new page
       const response = await fetch(url);
@@ -87,7 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
       // Load and execute any scripts in the new content
       executeScripts(contentContainer);
       
-      // Complete the transition
+      // Check if math is enabled on the page and initialize KaTeX if needed
+      initializeMath();
+      
+      // Initialize TOC if present
+      initializeTOC();
+      
+      // Complete the transition immediately
       document.body.classList.remove('page-transition');
       
       // Scroll to top of page by default
@@ -104,6 +107,76 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Navigation failed:', error);
       // Fallback to normal navigation if fetch fails
       window.location.href = url;
+    }
+  }
+  
+  // Function to check if math is enabled and initialize KaTeX
+  function initializeMath() {
+    const hasAutonumber = document.querySelector('.autonumber');
+    const mathEnabled = hasAutonumber && hasAutonumber.dataset.math === 'true';
+    
+    if (document.body.classList.contains('math-enabled') || mathEnabled) {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false }
+          ]
+        });
+      } else {
+        // If KaTeX isn't loaded yet, load it dynamically
+        const katexCSS = document.createElement('link');
+        katexCSS.rel = 'stylesheet';
+        katexCSS.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css';
+        document.head.appendChild(katexCSS);
+        
+        const katexJS = document.createElement('script');
+        katexJS.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js';
+        katexJS.defer = true;
+        document.head.appendChild(katexJS);
+        
+        const autoRenderJS = document.createElement('script');
+        autoRenderJS.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js';
+        autoRenderJS.defer = true;
+        autoRenderJS.onload = function() {
+          renderMathInElement(document.body, {
+            delimiters: [
+              { left: "$$", right: "$$", display: true },
+              { left: "$", right: "$", display: false }
+            ]
+          });
+        };
+        document.head.appendChild(autoRenderJS);
+      }
+    }
+  }
+  
+  // Function to initialize TOC
+  function initializeTOC() {
+    // Check for TOC elements
+    const tocContainer = document.querySelector('.toc-container');
+    const stickyToc = document.querySelector('.sticky-toc');
+    
+    // Initialize regular TOC
+    if (tocContainer) {
+      // Reset any existing TOC item visibility states
+      document.querySelectorAll('.toc-container li').forEach(li => {
+        li.classList.remove('is-visible');
+      });
+      
+      // Re-initialize the TOC helper
+      const script = document.createElement('script');
+      script.src = '/js/tochelper.js';
+      script.defer = true;
+      document.body.appendChild(script);
+    }
+    
+    // Initialize sticky TOC if present
+    if (stickyToc) {
+      const stickyScript = document.createElement('script');
+      stickyScript.src = '/js/sticky-toc.js';
+      stickyScript.defer = true;
+      document.body.appendChild(stickyScript);
     }
   }
   
@@ -132,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Re-initialize any components that rely on DOM ready events
-    // For example: tochelper, copy-code, etc.
+    // For example: mermaid, copy-code, etc.
     if (window.runmermaid) runmermaid();
     
     // Dispatch a custom event that your components can listen for

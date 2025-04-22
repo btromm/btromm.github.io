@@ -46,6 +46,8 @@
 {{ $transitionsCSS := resources.Get "css/transitions.css" | minify }}
 <link rel="stylesheet" href="{{ $transitionsCSS.RelPermalink }}">
 <script defer src="{{ "js/smooth-transitions.js" | relURL }}"></script>
+<script defer src="{{ "js/math-renderer.js" | relURL }}"></script>
+<script defer src="{{ "js/toc-handler.js" | relURL }}"></script>
 
 {{ if hugo.IsProduction }}
 {{ template "_internal/google_analytics.html" . }}

@@ -1,42 +1,40 @@
-/* Page Transition Animations */
+/* Page Transition CSS - No animations */
 body.transition-enabled {
-  /* Base transition settings */
-  transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
-  transition-duration: 500ms;
+  /* No transitions */
+  transition-property: none;
 }
 
 body.page-transition {
-  /* During transition, fade out the content */
-  opacity: 0;
+  /* No fade effect */
+  opacity: 1;
 }
 
-/* Element transition animations for entering */
+/* Remove all element transitions */
 .transition-enabled .content *:not(html):not(body) {
-  transition: transform 300ms ease-out, opacity 500ms ease;
-  transition-delay: var(--transition-delay, 0ms);
+  transition: none;
+  transition-delay: 0ms;
 }
 
-/* Optional: Staggered transitions for elements entering the page */
+/* Remove all transform and opacity changes */
 @media (prefers-reduced-motion: no-preference) {
   body.page-transition .content * {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: none;
   }
   
-  /* Element appear animations after transition completes */
-  .transition-enabled:not(.page-transition) h1 { --transition-delay: 50ms; }
+  /* Remove all transition delays */
+  .transition-enabled:not(.page-transition) h1,
   .transition-enabled:not(.page-transition) h2, 
-  .transition-enabled:not(.page-transition) h3 { --transition-delay: 75ms; }
-  .transition-enabled:not(.page-transition) p { --transition-delay: 100ms; }
+  .transition-enabled:not(.page-transition) h3,
+  .transition-enabled:not(.page-transition) p,
   .transition-enabled:not(.page-transition) .header,
   .transition-enabled:not(.page-transition) .main,
-  .transition-enabled:not(.page-transition) footer { --transition-delay: 0ms; }
-  
-  /* Staggered element transitions */
-  .transition-enabled:not(.page-transition) img { --transition-delay: 200ms; }
-  .transition-enabled:not(.page-transition) .toc { --transition-delay: 250ms; }
-  .transition-enabled:not(.page-transition) .back-to-top { --transition-delay: 300ms; }
+  .transition-enabled:not(.page-transition) footer,
+  .transition-enabled:not(.page-transition) img,
+  .transition-enabled:not(.page-transition) .toc,
+  .transition-enabled:not(.page-transition) .back-to-top {
+    --transition-delay: 0ms;
+  }
 }
 
 /* Disable transitions for users who prefer reduced motion */

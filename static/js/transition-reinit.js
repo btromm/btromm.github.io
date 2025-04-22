@@ -1,12 +1,6 @@
 // Reinitialize site components after page transitions
 document.addEventListener('pageTransitionComplete', () => {
-  // Reinitialize table of contents helpers
-  if (document.querySelector('.toc-container')) {
-    const tocScript = document.createElement('script');
-    tocScript.src = '/js/tochelper.js';
-    tocScript.defer = true;
-    document.body.appendChild(tocScript);
-  }
+  // We no longer need TOC initialization here as it's handled by toc-handler.js
   
   // Reinitialize syntax highlighting and copy buttons
   if (document.querySelectorAll('pre').length > 0) {
@@ -14,14 +8,6 @@ document.addEventListener('pageTransitionComplete', () => {
     copyScript.src = '/js/copy-code.js';
     copyScript.defer = true;
     document.body.appendChild(copyScript);
-  }
-  
-  // Reinitialize any sticky TOC elements
-  if (document.querySelector('.sticky-toc')) {
-    const stickyScript = document.createElement('script');
-    stickyScript.src = '/js/sticky-toc.js';
-    stickyScript.defer = true;
-    document.body.appendChild(stickyScript);
   }
   
   // Handle any theme switching elements

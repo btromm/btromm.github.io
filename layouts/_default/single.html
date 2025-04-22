@@ -6,8 +6,7 @@
 {{ partial "breadcrumbs.html" . }}
 {{ end }}
 
-<script src="{{ "js/tochelper.js" | relURL }}" defer></script>
-<div {{ if .Param "autonumber" }} class="autonumber" {{ end }}>
+<div {{ if .Param "autonumber" }} class="autonumber" {{ end }}{{ if .Param "math" }} data-math="true"{{ end }}>
 
   {{/* Main content container */}}
   <div class="content-wrapper">
@@ -86,6 +85,8 @@
       {{ if not (.Param "hidePagination") }}
       {{ partial "pagination-single.html" . }}
       {{ end }}
+
+      {{ partial "newsletter.html" }}
 
       {{/* Back to top */}}
       {{ if not (.Param "hideBackToTop") }}

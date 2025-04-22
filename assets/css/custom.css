@@ -442,3 +442,8 @@ html:not([data-scroll='0']) .toc-container {
 p {
   font-family: var(--font-paragraph);
 }
+
+/* Ensure tags display in their original case */
+.single-tags span a {
+  text-transform: lowercase;
+}
