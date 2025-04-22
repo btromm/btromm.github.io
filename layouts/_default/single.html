@@ -61,13 +61,20 @@
 
       {{/* Page content */}}
       <div class="single-content">
-        {{ .Content }}
+        {{/* Process content for wiki links if this is a note */}}
+        {{ $processedContent := .Content | partial "wikilinks.html" }}
+        {{ $processedContent | safeHTML }}
         {{ if .Site.Params.giscus.enable }}
         {{ if not .Params.disableComment }}
         {{ partial "comments.html" . }}
         {{ end }}
         {{ end }}
       </div>
+
+      {{/* Display backlinks if this is a note */}}
+      {{ if eq .Section "notes" }}
+      {{ partial "backlinks.html" . }}
+      {{ end }}
 
       {{ if .Store.Get "hasMermaid" }}
       {{ $mermaidDarkTheme := default "dark" (or .Params.mermaidDarkTheme .Site.Params.mermaidDarkTheme) }}
@@ -81,12 +88,15 @@
       </script>
       {{ end }}
 
+      {{ if eq .Section "posts" }}
+
       {{/* Next prev controls */}}
       {{ if not (.Param "hidePagination") }}
       {{ partial "pagination-single.html" . }}
       {{ end }}
-
+      
       {{ partial "newsletter.html" }}
+      
 
       {{/* Back to top */}}
       {{ if not (.Param "hideBackToTop") }}
@@ -95,6 +105,8 @@
           back to top
         </a>
       </div>
+      {{ end }}
+
       {{ end }}
     </div>
   </div>

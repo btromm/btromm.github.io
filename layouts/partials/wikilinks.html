@@ -1,0 +1,8 @@
+{{/* Transform [[wiki links]] into actual links */}}
+{{ $content := . }}
+{{ $regex := "\\[\\[([^\\]]+)\\]\\]" }}
+
+{{ $replacement := "<a href=\"/notes/${1}\" class=\"wikilink\">${1}</a>" }}
+{{ $transformed := replaceRE $regex $replacement $content }}
+
+{{ return $transformed }}

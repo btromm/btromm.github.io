@@ -447,3 +447,75 @@ p {
 .single-tags span a {
   text-transform: lowercase;
 }
+
+/* Wikilink styles */
+a.wikilink {
+    text-decoration: none;
+    border-bottom: 1px solid #4B9CD3;
+    padding: 0 2px;
+    color: inherit;
+    transition: background-color 0.3s ease;
+}
+
+a.wikilink:hover {
+    background-color: rgba(75, 156, 211, 0.2);
+    border-bottom: 1px solid #4B9CD3;
+}
+
+/* Broken wikilinks - if needed later */
+a.wikilink.broken {
+    border-bottom: 1px dotted #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.1);
+}
+
+a.wikilink.broken:hover {
+    background-color: rgba(255, 107, 107, 0.2);
+}
+
+/* Backlinks styles */
+.backlinks {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: var(--code-background, rgba(240, 240, 240, 0.1));
+    border: 1px solid var(--code-border, rgba(200, 200, 200, 0.2));
+}
+
+.backlinks h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--content-primary);
+    border-bottom: 1px solid var(--content-secondary);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.backlinks ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.backlinks li {
+    margin-bottom: 0.8rem;
+}
+
+.backlinks a.backlink {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--content-primary);
+    border-bottom: 1px solid #4B9CD3;
+    padding: 0 2px;
+    transition: border-bottom 0.3s ease, background-color 0.3s ease;
+}
+
+.backlinks a.backlink:hover {
+    border-bottom: 1px solid #4B9CD3;
+    background-color: rgba(75, 156, 211, 0.1);
+}
+
+.backlinks .backlink-context {
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0 1rem;
+    color: var(--content-secondary);
+}

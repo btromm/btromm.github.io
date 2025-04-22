@@ -8,7 +8,7 @@
       href="{{.Site.BaseURL }}/index.xml"
       title="{{ .Site.Title }}">
 
-    {{ if or (not (.IsPage)) (not (eq .Section "posts")) .IsHome }}
+    {{ if not (.IsPage) }}
 
     <h1 class="header-title">
         <a href="{{ site.BaseURL }}">{{ site.Title }}</a>

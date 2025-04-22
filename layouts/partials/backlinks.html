@@ -1,0 +1,23 @@
+{{/* Display backlinks to the current note */}}
+{{ $currentPagePath := .Page.RelPermalink }}
+{{ $currentPageTitle := .Page.Title }}
+{{ $backlinks := slice }}
+
+{{ range where .Site.RegularPages "Section" "notes" }}
+  {{ if and (ne .RelPermalink $currentPagePath) (findRE (printf "\\[\\[%s\\]\\]" $currentPageTitle) .RawContent) }}
+    {{ $backlinks = $backlinks | append . }}
+  {{ end }}
+{{ end }}
+
+{{ if gt (len $backlinks) 0 }}
+<div class="backlinks">
+  <h3>Backlinks</h3>
+  <ul>
+    {{ range $backlinks }}
+    <li>
+      <a href="{{ .RelPermalink }}" class="backlink">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

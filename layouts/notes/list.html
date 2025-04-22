@@ -1,0 +1,40 @@
+{{ define "main" }}
+
+<div class="list-container">
+
+    {{ partial "breadcrumbs.html" . }}
+
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+
+    {{ $paginationSize := 1}}
+    {{ if (gt .Site.Params.paginationSize 0) }}
+    {{ $paginationSize = .Site.Params.paginationSize }}
+    {{ end }}
+
+    {{ $paginator := .Paginate (.Pages) $paginationSize }}
+
+    {{ range $index, $page := $paginator.Pages }}
+    <div class="post-line">
+        {{ $dateFormat := "2 Jan 2006"}}
+        {{ with .Site.Params.listDateFormat }}
+        {{ $dateFormat = .}}
+        {{ end }}
+
+        <p class="line-date">{{ .Date | time.Format $dateFormat }} </p>
+
+        <div>
+            <p class="line-title">
+                <a href="{{ .RelPermalink }}">
+                    {{ .Title }}
+                </a>
+            </p>
+            <!-- No summary displayed for notes -->
+        </div>
+    </div>
+    {{ end }}
+
+    {{ partial "pagination-controls.html" $paginator}}
+
+</div>
+{{ end }}
