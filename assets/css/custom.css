@@ -435,7 +435,7 @@ html:not([data-scroll='0']) .toc-container {
 
 @font-face {
   font-family: 'Source Sans';
-  src: url('/fonts/Source Sans/SourceSans3-Regular.ttf');
+  src: url('/fonts/Source Sans/SourceSans3-Variable.ttf');
   font-style: normal;
 }
 
