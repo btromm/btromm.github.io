@@ -118,10 +118,10 @@ theme = "preferred_color_scheme"
 
 [outputs]
   home = ['html']
-  section = ['html']
+  section = ['html', 'rss']
   taxonomy = ['html']
   term = ['html']
 
-[Author]
+[params.author]
     name = "Bobby Tromm"
     email = "bobby.tromm@gmail.com"
