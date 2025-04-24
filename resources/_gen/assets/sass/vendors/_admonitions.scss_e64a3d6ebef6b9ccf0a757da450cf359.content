@@ -1,0 +1,401 @@
+.admonition {
+  margin: 1rem 0;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.admonition-header {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 4px 4px 0 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admonition-header svg {
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.5rem;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.admonition-header span {
+  flex-grow: 1;
+}
+
+.admonition-content {
+  padding: 1rem;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 0 0 4px 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admonition-content p {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.admonition-content p:last-child {
+  margin-bottom: 0;
+}
+
+.admonition-content ul,
+.admonition-content ol {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+}
+
+.admonition-content ul:last-child,
+.admonition-content ol:last-child {
+  margin-bottom: 0;
+}
+
+.admonition-content blockquote {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 1rem;
+  border-left: 3px solid #e0e0e0;
+  color: inherit;
+  font-style: italic;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.admonition-content blockquote:last-child {
+  margin-bottom: 0;
+}
+
+.admonition-content code {
+  background-color: #f5f5f5;
+  color: #24292e;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admonition-content pre {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  background-color: #f5f5f5;
+  padding: 0.8rem 1rem;
+  border-radius: 3px;
+  overflow-x: auto;
+}
+
+.admonition-content pre:last-child {
+  margin-bottom: 0;
+}
+
+.admonition-content pre code {
+  background-color: transparent;
+  padding: 0;
+  font-size: inherit;
+  border-radius: 0;
+}
+
+.admonition-content > *:first-child {
+  margin-top: 0;
+}
+
+html[data-theme="dark"] .admonition .admonition-content, body[data-theme="dark"] .admonition .admonition-content, html[data-bs-theme="dark"] .admonition .admonition-content, html[data-scheme="dark"] .admonition .admonition-content, body[data-scheme="dark"] .admonition .admonition-content, html[data-color-mode="dark"] .admonition .admonition-content, body[data-color-mode="dark"] .admonition .admonition-content, body.dark .admonition .admonition-content, body.dark-mode .admonition .admonition-content, body.theme-dark .admonition .admonition-content, html.dark .admonition .admonition-content, html.dark-mode .admonition .admonition-content {
+  background-color: #1d1e20;
+  color: #e6e6e6;
+}
+
+html[data-theme="dark"] .admonition .admonition-content blockquote, body[data-theme="dark"] .admonition .admonition-content blockquote, html[data-bs-theme="dark"] .admonition .admonition-content blockquote, html[data-scheme="dark"] .admonition .admonition-content blockquote, body[data-scheme="dark"] .admonition .admonition-content blockquote, html[data-color-mode="dark"] .admonition .admonition-content blockquote, body[data-color-mode="dark"] .admonition .admonition-content blockquote, body.dark .admonition .admonition-content blockquote, body.dark-mode .admonition .admonition-content blockquote, body.theme-dark .admonition .admonition-content blockquote, html.dark .admonition .admonition-content blockquote, html.dark-mode .admonition .admonition-content blockquote {
+  border-left-color: #45475a;
+  color: inherit;
+}
+
+html[data-theme="dark"] .admonition .admonition-content code, body[data-theme="dark"] .admonition .admonition-content code, html[data-bs-theme="dark"] .admonition .admonition-content code, html[data-scheme="dark"] .admonition .admonition-content code, body[data-scheme="dark"] .admonition .admonition-content code, html[data-color-mode="dark"] .admonition .admonition-content code, body[data-color-mode="dark"] .admonition .admonition-content code, body.dark .admonition .admonition-content code, body.dark-mode .admonition .admonition-content code, body.theme-dark .admonition .admonition-content code, html.dark .admonition .admonition-content code, html.dark-mode .admonition .admonition-content code {
+  background-color: #313244;
+  color: #cdd6f4;
+}
+
+html[data-theme="dark"] .admonition .admonition-content pre, body[data-theme="dark"] .admonition .admonition-content pre, html[data-bs-theme="dark"] .admonition .admonition-content pre, html[data-scheme="dark"] .admonition .admonition-content pre, body[data-scheme="dark"] .admonition .admonition-content pre, html[data-color-mode="dark"] .admonition .admonition-content pre, body[data-color-mode="dark"] .admonition .admonition-content pre, body.dark .admonition .admonition-content pre, body.dark-mode .admonition .admonition-content pre, body.theme-dark .admonition .admonition-content pre, html.dark .admonition .admonition-content pre, html.dark-mode .admonition .admonition-content pre {
+  background-color: #313244;
+}
+
+html[data-theme="dark"] .admonition.abstract .admonition-header, body[data-theme="dark"] .admonition.abstract .admonition-header, html[data-bs-theme="dark"] .admonition.abstract .admonition-header, html[data-scheme="dark"] .admonition.abstract .admonition-header, body[data-scheme="dark"] .admonition.abstract .admonition-header, html[data-color-mode="dark"] .admonition.abstract .admonition-header, body[data-color-mode="dark"] .admonition.abstract .admonition-header, body.dark .admonition.abstract .admonition-header, body.dark-mode .admonition.abstract .admonition-header, body.theme-dark .admonition.abstract .admonition-header, html.dark .admonition.abstract .admonition-header, html.dark-mode .admonition.abstract .admonition-header {
+  background-color: rgba(32, 159, 181, 0.1);
+}
+
+html[data-theme="dark"] .admonition.caution .admonition-header, body[data-theme="dark"] .admonition.caution .admonition-header, html[data-bs-theme="dark"] .admonition.caution .admonition-header, html[data-scheme="dark"] .admonition.caution .admonition-header, body[data-scheme="dark"] .admonition.caution .admonition-header, html[data-color-mode="dark"] .admonition.caution .admonition-header, body[data-color-mode="dark"] .admonition.caution .admonition-header, body.dark .admonition.caution .admonition-header, body.dark-mode .admonition.caution .admonition-header, body.theme-dark .admonition.caution .admonition-header, html.dark .admonition.caution .admonition-header, html.dark-mode .admonition.caution .admonition-header {
+  background-color: rgba(230, 69, 83, 0.1);
+}
+
+html[data-theme="dark"] .admonition.code .admonition-header, body[data-theme="dark"] .admonition.code .admonition-header, html[data-bs-theme="dark"] .admonition.code .admonition-header, html[data-scheme="dark"] .admonition.code .admonition-header, body[data-scheme="dark"] .admonition.code .admonition-header, html[data-color-mode="dark"] .admonition.code .admonition-header, body[data-color-mode="dark"] .admonition.code .admonition-header, body.dark .admonition.code .admonition-header, body.dark-mode .admonition.code .admonition-header, body.theme-dark .admonition.code .admonition-header, html.dark .admonition.code .admonition-header, html.dark-mode .admonition.code .admonition-header {
+  background-color: rgba(114, 135, 253, 0.1);
+}
+
+html[data-theme="dark"] .admonition.conclusion .admonition-header, body[data-theme="dark"] .admonition.conclusion .admonition-header, html[data-bs-theme="dark"] .admonition.conclusion .admonition-header, html[data-scheme="dark"] .admonition.conclusion .admonition-header, body[data-scheme="dark"] .admonition.conclusion .admonition-header, html[data-color-mode="dark"] .admonition.conclusion .admonition-header, body[data-color-mode="dark"] .admonition.conclusion .admonition-header, body.dark .admonition.conclusion .admonition-header, body.dark-mode .admonition.conclusion .admonition-header, body.theme-dark .admonition.conclusion .admonition-header, html.dark .admonition.conclusion .admonition-header, html.dark-mode .admonition.conclusion .admonition-header {
+  background-color: rgba(221, 120, 120, 0.1);
+}
+
+html[data-theme="dark"] .admonition.danger .admonition-header, body[data-theme="dark"] .admonition.danger .admonition-header, html[data-bs-theme="dark"] .admonition.danger .admonition-header, html[data-scheme="dark"] .admonition.danger .admonition-header, body[data-scheme="dark"] .admonition.danger .admonition-header, html[data-color-mode="dark"] .admonition.danger .admonition-header, body[data-color-mode="dark"] .admonition.danger .admonition-header, body.dark .admonition.danger .admonition-header, body.dark-mode .admonition.danger .admonition-header, body.theme-dark .admonition.danger .admonition-header, html.dark .admonition.danger .admonition-header, html.dark-mode .admonition.danger .admonition-header {
+  background-color: rgba(254, 100, 11, 0.1);
+}
+
+html[data-theme="dark"] .admonition.error .admonition-header, body[data-theme="dark"] .admonition.error .admonition-header, html[data-bs-theme="dark"] .admonition.error .admonition-header, html[data-scheme="dark"] .admonition.error .admonition-header, body[data-scheme="dark"] .admonition.error .admonition-header, html[data-color-mode="dark"] .admonition.error .admonition-header, body[data-color-mode="dark"] .admonition.error .admonition-header, body.dark .admonition.error .admonition-header, body.dark-mode .admonition.error .admonition-header, body.theme-dark .admonition.error .admonition-header, html.dark .admonition.error .admonition-header, html.dark-mode .admonition.error .admonition-header {
+  background-color: rgba(210, 15, 57, 0.1);
+}
+
+html[data-theme="dark"] .admonition.example .admonition-header, body[data-theme="dark"] .admonition.example .admonition-header, html[data-bs-theme="dark"] .admonition.example .admonition-header, html[data-scheme="dark"] .admonition.example .admonition-header, body[data-scheme="dark"] .admonition.example .admonition-header, html[data-color-mode="dark"] .admonition.example .admonition-header, body[data-color-mode="dark"] .admonition.example .admonition-header, body.dark .admonition.example .admonition-header, body.dark-mode .admonition.example .admonition-header, body.theme-dark .admonition.example .admonition-header, html.dark .admonition.example .admonition-header, html.dark-mode .admonition.example .admonition-header {
+  background-color: rgba(220, 138, 120, 0.1);
+}
+
+html[data-theme="dark"] .admonition.experiment .admonition-header, body[data-theme="dark"] .admonition.experiment .admonition-header, html[data-bs-theme="dark"] .admonition.experiment .admonition-header, html[data-scheme="dark"] .admonition.experiment .admonition-header, body[data-scheme="dark"] .admonition.experiment .admonition-header, html[data-color-mode="dark"] .admonition.experiment .admonition-header, body[data-color-mode="dark"] .admonition.experiment .admonition-header, body.dark .admonition.experiment .admonition-header, body.dark-mode .admonition.experiment .admonition-header, body.theme-dark .admonition.experiment .admonition-header, html.dark .admonition.experiment .admonition-header, html.dark-mode .admonition.experiment .admonition-header {
+  background-color: rgba(81, 187, 42, 0.1);
+}
+
+html[data-theme="dark"] .admonition.goal .admonition-header, body[data-theme="dark"] .admonition.goal .admonition-header, html[data-bs-theme="dark"] .admonition.goal .admonition-header, html[data-scheme="dark"] .admonition.goal .admonition-header, body[data-scheme="dark"] .admonition.goal .admonition-header, html[data-color-mode="dark"] .admonition.goal .admonition-header, body[data-color-mode="dark"] .admonition.goal .admonition-header, body.dark .admonition.goal .admonition-header, body.dark-mode .admonition.goal .admonition-header, body.theme-dark .admonition.goal .admonition-header, html.dark .admonition.goal .admonition-header, html.dark-mode .admonition.goal .admonition-header {
+  background-color: rgba(230, 69, 83, 0.1);
+}
+
+html[data-theme="dark"] .admonition.idea .admonition-header, body[data-theme="dark"] .admonition.idea .admonition-header, html[data-bs-theme="dark"] .admonition.idea .admonition-header, html[data-scheme="dark"] .admonition.idea .admonition-header, body[data-scheme="dark"] .admonition.idea .admonition-header, html[data-color-mode="dark"] .admonition.idea .admonition-header, body[data-color-mode="dark"] .admonition.idea .admonition-header, body.dark .admonition.idea .admonition-header, body.dark-mode .admonition.idea .admonition-header, body.theme-dark .admonition.idea .admonition-header, html.dark .admonition.idea .admonition-header, html.dark-mode .admonition.idea .admonition-header {
+  background-color: rgba(223, 142, 29, 0.1);
+}
+
+html[data-theme="dark"] .admonition.important .admonition-header, body[data-theme="dark"] .admonition.important .admonition-header, html[data-bs-theme="dark"] .admonition.important .admonition-header, html[data-scheme="dark"] .admonition.important .admonition-header, body[data-scheme="dark"] .admonition.important .admonition-header, html[data-color-mode="dark"] .admonition.important .admonition-header, body[data-color-mode="dark"] .admonition.important .admonition-header, body.dark .admonition.important .admonition-header, body.dark-mode .admonition.important .admonition-header, body.theme-dark .admonition.important .admonition-header, html.dark .admonition.important .admonition-header, html.dark-mode .admonition.important .admonition-header {
+  background-color: rgba(125, 77, 218, 0.1);
+}
+
+html[data-theme="dark"] .admonition.info .admonition-header, body[data-theme="dark"] .admonition.info .admonition-header, html[data-bs-theme="dark"] .admonition.info .admonition-header, html[data-scheme="dark"] .admonition.info .admonition-header, body[data-scheme="dark"] .admonition.info .admonition-header, html[data-color-mode="dark"] .admonition.info .admonition-header, body[data-color-mode="dark"] .admonition.info .admonition-header, body.dark .admonition.info .admonition-header, body.dark-mode .admonition.info .admonition-header, body.theme-dark .admonition.info .admonition-header, html.dark .admonition.info .admonition-header, html.dark-mode .admonition.info .admonition-header {
+  background-color: rgba(4, 165, 229, 0.1);
+}
+
+html[data-theme="dark"] .admonition.memo .admonition-header, body[data-theme="dark"] .admonition.memo .admonition-header, html[data-bs-theme="dark"] .admonition.memo .admonition-header, html[data-scheme="dark"] .admonition.memo .admonition-header, body[data-scheme="dark"] .admonition.memo .admonition-header, html[data-color-mode="dark"] .admonition.memo .admonition-header, body[data-color-mode="dark"] .admonition.memo .admonition-header, body.dark .admonition.memo .admonition-header, body.dark-mode .admonition.memo .admonition-header, body.theme-dark .admonition.memo .admonition-header, html.dark .admonition.memo .admonition-header, html.dark-mode .admonition.memo .admonition-header {
+  background-color: rgba(230, 69, 83, 0.1);
+}
+
+html[data-theme="dark"] .admonition.note .admonition-header, body[data-theme="dark"] .admonition.note .admonition-header, html[data-bs-theme="dark"] .admonition.note .admonition-header, html[data-scheme="dark"] .admonition.note .admonition-header, body[data-scheme="dark"] .admonition.note .admonition-header, html[data-color-mode="dark"] .admonition.note .admonition-header, body[data-color-mode="dark"] .admonition.note .admonition-header, body.dark .admonition.note .admonition-header, body.dark-mode .admonition.note .admonition-header, body.theme-dark .admonition.note .admonition-header, html.dark .admonition.note .admonition-header, html.dark-mode .admonition.note .admonition-header {
+  background-color: rgba(9, 106, 225, 0.1);
+}
+
+html[data-theme="dark"] .admonition.notify .admonition-header, body[data-theme="dark"] .admonition.notify .admonition-header, html[data-bs-theme="dark"] .admonition.notify .admonition-header, html[data-scheme="dark"] .admonition.notify .admonition-header, body[data-scheme="dark"] .admonition.notify .admonition-header, html[data-color-mode="dark"] .admonition.notify .admonition-header, body[data-color-mode="dark"] .admonition.notify .admonition-header, body.dark .admonition.notify .admonition-header, body.dark-mode .admonition.notify .admonition-header, body.theme-dark .admonition.notify .admonition-header, html.dark .admonition.notify .admonition-header, html.dark-mode .admonition.notify .admonition-header {
+  background-color: rgba(13, 72, 189, 0.1);
+}
+
+html[data-theme="dark"] .admonition.question .admonition-header, body[data-theme="dark"] .admonition.question .admonition-header, html[data-bs-theme="dark"] .admonition.question .admonition-header, html[data-scheme="dark"] .admonition.question .admonition-header, body[data-scheme="dark"] .admonition.question .admonition-header, html[data-color-mode="dark"] .admonition.question .admonition-header, body[data-color-mode="dark"] .admonition.question .admonition-header, body.dark .admonition.question .admonition-header, body.dark-mode .admonition.question .admonition-header, body.theme-dark .admonition.question .admonition-header, html.dark .admonition.question .admonition-header, html.dark-mode .admonition.question .admonition-header {
+  background-color: rgba(23, 146, 153, 0.1);
+}
+
+html[data-theme="dark"] .admonition.quote .admonition-header, body[data-theme="dark"] .admonition.quote .admonition-header, html[data-bs-theme="dark"] .admonition.quote .admonition-header, html[data-scheme="dark"] .admonition.quote .admonition-header, body[data-scheme="dark"] .admonition.quote .admonition-header, html[data-color-mode="dark"] .admonition.quote .admonition-header, body[data-color-mode="dark"] .admonition.quote .admonition-header, body.dark .admonition.quote .admonition-header, body.dark-mode .admonition.quote .admonition-header, body.theme-dark .admonition.quote .admonition-header, html.dark .admonition.quote .admonition-header, html.dark-mode .admonition.quote .admonition-header {
+  background-color: rgba(114, 135, 253, 0.1);
+}
+
+html[data-theme="dark"] .admonition.success .admonition-header, body[data-theme="dark"] .admonition.success .admonition-header, html[data-bs-theme="dark"] .admonition.success .admonition-header, html[data-scheme="dark"] .admonition.success .admonition-header, body[data-scheme="dark"] .admonition.success .admonition-header, html[data-color-mode="dark"] .admonition.success .admonition-header, body[data-color-mode="dark"] .admonition.success .admonition-header, body.dark .admonition.success .admonition-header, body.dark-mode .admonition.success .admonition-header, body.theme-dark .admonition.success .admonition-header, html.dark .admonition.success .admonition-header, html.dark-mode .admonition.success .admonition-header {
+  background-color: rgba(64, 160, 43, 0.1);
+}
+
+html[data-theme="dark"] .admonition.task .admonition-header, body[data-theme="dark"] .admonition.task .admonition-header, html[data-bs-theme="dark"] .admonition.task .admonition-header, html[data-scheme="dark"] .admonition.task .admonition-header, body[data-scheme="dark"] .admonition.task .admonition-header, html[data-color-mode="dark"] .admonition.task .admonition-header, body[data-color-mode="dark"] .admonition.task .admonition-header, body.dark .admonition.task .admonition-header, body.dark-mode .admonition.task .admonition-header, body.theme-dark .admonition.task .admonition-header, html.dark .admonition.task .admonition-header, html.dark-mode .admonition.task .admonition-header {
+  background-color: rgba(136, 57, 239, 0.1);
+}
+
+html[data-theme="dark"] .admonition.tip .admonition-header, body[data-theme="dark"] .admonition.tip .admonition-header, html[data-bs-theme="dark"] .admonition.tip .admonition-header, html[data-scheme="dark"] .admonition.tip .admonition-header, body[data-scheme="dark"] .admonition.tip .admonition-header, html[data-color-mode="dark"] .admonition.tip .admonition-header, body[data-color-mode="dark"] .admonition.tip .admonition-header, body.dark .admonition.tip .admonition-header, body.dark-mode .admonition.tip .admonition-header, body.theme-dark .admonition.tip .admonition-header, html.dark .admonition.tip .admonition-header, html.dark-mode .admonition.tip .admonition-header {
+  background-color: rgba(23, 146, 153, 0.1);
+}
+
+html[data-theme="dark"] .admonition.warning .admonition-header, body[data-theme="dark"] .admonition.warning .admonition-header, html[data-bs-theme="dark"] .admonition.warning .admonition-header, html[data-scheme="dark"] .admonition.warning .admonition-header, body[data-scheme="dark"] .admonition.warning .admonition-header, html[data-color-mode="dark"] .admonition.warning .admonition-header, body[data-color-mode="dark"] .admonition.warning .admonition-header, body.dark .admonition.warning .admonition-header, body.dark-mode .admonition.warning .admonition-header, body.theme-dark .admonition.warning .admonition-header, html.dark .admonition.warning .admonition-header, html.dark-mode .admonition.warning .admonition-header {
+  background-color: rgba(223, 142, 29, 0.1);
+}
+
+.admonition.abstract {
+  border-left: 4px solid #209fb5;
+}
+
+.admonition.abstract .admonition-header {
+  background-color: rgba(32, 159, 181, 0.1);
+  color: #209fb5;
+}
+
+.admonition.caution {
+  border-left: 4px solid #e64553;
+}
+
+.admonition.caution .admonition-header {
+  background-color: rgba(230, 69, 83, 0.1);
+  color: #e64553;
+}
+
+.admonition.code {
+  border-left: 4px solid #7287fd;
+}
+
+.admonition.code .admonition-header {
+  background-color: rgba(114, 135, 253, 0.1);
+  color: #7287fd;
+}
+
+.admonition.conclusion {
+  border-left: 4px solid #dd7878;
+}
+
+.admonition.conclusion .admonition-header {
+  background-color: rgba(221, 120, 120, 0.1);
+  color: #dd7878;
+}
+
+.admonition.danger {
+  border-left: 4px solid #fe640b;
+}
+
+.admonition.danger .admonition-header {
+  background-color: rgba(254, 100, 11, 0.1);
+  color: #fe640b;
+}
+
+.admonition.error {
+  border-left: 4px solid #d20f39;
+}
+
+.admonition.error .admonition-header {
+  background-color: rgba(210, 15, 57, 0.1);
+  color: #d20f39;
+}
+
+.admonition.example {
+  border-left: 4px solid #dc8a78;
+}
+
+.admonition.example .admonition-header {
+  background-color: rgba(220, 138, 120, 0.1);
+  color: #dc8a78;
+}
+
+.admonition.experiment {
+  border-left: 4px solid #51bb2a;
+}
+
+.admonition.experiment .admonition-header {
+  background-color: rgba(81, 187, 42, 0.1);
+  color: #51bb2a;
+}
+
+.admonition.goal {
+  border-left: 4px solid #e64553;
+}
+
+.admonition.goal .admonition-header {
+  background-color: rgba(230, 69, 83, 0.1);
+  color: #e64553;
+}
+
+.admonition.idea {
+  border-left: 4px solid #df8e1d;
+}
+
+.admonition.idea .admonition-header {
+  background-color: rgba(223, 142, 29, 0.1);
+  color: #df8e1d;
+}
+
+.admonition.important {
+  border-left: 4px solid #7d4dda;
+}
+
+.admonition.important .admonition-header {
+  background-color: rgba(125, 77, 218, 0.1);
+  color: #7d4dda;
+}
+
+.admonition.info {
+  border-left: 4px solid #04a5e5;
+}
+
+.admonition.info .admonition-header {
+  background-color: rgba(4, 165, 229, 0.1);
+  color: #04a5e5;
+}
+
+.admonition.memo {
+  border-left: 4px solid #e64553;
+}
+
+.admonition.memo .admonition-header {
+  background-color: rgba(230, 69, 83, 0.1);
+  color: #e64553;
+}
+
+.admonition.note {
+  border-left: 4px solid #096ae1;
+}
+
+.admonition.note .admonition-header {
+  background-color: rgba(9, 106, 225, 0.1);
+  color: #096ae1;
+}
+
+.admonition.notify {
+  border-left: 4px solid #0d48bd;
+}
+
+.admonition.notify .admonition-header {
+  background-color: rgba(13, 72, 189, 0.1);
+  color: #0d48bd;
+}
+
+.admonition.question {
+  border-left: 4px solid #179299;
+}
+
+.admonition.question .admonition-header {
+  background-color: rgba(23, 146, 153, 0.1);
+  color: #179299;
+}
+
+.admonition.quote {
+  border-left: 4px solid #7287fd;
+}
+
+.admonition.quote .admonition-header {
+  background-color: rgba(114, 135, 253, 0.1);
+  color: #7287fd;
+}
+
+.admonition.success {
+  border-left: 4px solid #40a02b;
+}
+
+.admonition.success .admonition-header {
+  background-color: rgba(64, 160, 43, 0.1);
+  color: #40a02b;
+}
+
+.admonition.task {
+  border-left: 4px solid #8839ef;
+}
+
+.admonition.task .admonition-header {
+  background-color: rgba(136, 57, 239, 0.1);
+  color: #8839ef;
+}
+
+.admonition.tip {
+  border-left: 4px solid #179299;
+}
+
+.admonition.tip .admonition-header {
+  background-color: rgba(23, 146, 153, 0.1);
+  color: #179299;
+}
+
+.admonition.warning {
+  border-left: 4px solid #df8e1d;
+}
+
+.admonition.warning .admonition-header {
+  background-color: rgba(223, 142, 29, 0.1);
+  color: #df8e1d;
+}
+
+/*# sourceMappingURL=admonitions.css.map */

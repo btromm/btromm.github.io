@@ -9,7 +9,6 @@ autonumber: true
 math: true
 tags: ["poetry"]
 ---
-
 what is the labor of love, but the foul wind turned palatable?  
 fermented and bubbly, funky and oozing  
 the smell of decay becomes umami,  

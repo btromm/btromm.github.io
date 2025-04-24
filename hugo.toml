@@ -97,8 +97,10 @@ url = "/pdf/cv.pdf"
 
 # Syntax highlight on code blocks
 [markup]
-[markup.highlight]
-style = 'algol'
+   [markup.goldmark.renderer]
+      unsafe = true
+   [markup.highlight]
+      style = 'algol'
 
 # Table of contents configuration
 [markup.tableOfContents]
