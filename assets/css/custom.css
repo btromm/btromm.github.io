@@ -530,3 +530,48 @@ a.wikilink.broken:hover {
     margin: 0.3rem 0 0 1rem;
     color: var(--content-secondary);
 }
+
+/* Mermaid diagram styles */
+.mermaid {
+    position: relative;
+    min-height: 100px;
+    transition: opacity 0.3s ease;
+}
+
+.mermaid-loading {
+    opacity: 0.5;
+}
+
+.mermaid-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    border: 3px solid var(--content-secondary);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: mermaid-spinner 0.8s linear infinite;
+}
+
+.mermaid-error {
+    padding: 1rem;
+    border: 1px solid var(--code-border);
+    background-color: var(--code-background);
+    color: #ff6b6b;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+.mermaid-rendered {
+    opacity: 1;
+}
+
+@keyframes mermaid-spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
