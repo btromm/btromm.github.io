@@ -1,6 +1,6 @@
 ---
 title: Self-studying mathematics
-date: 2025-04-22
+date: 2025-04-25
 summary: A short essay on my plans for the next six months.
 tags:
   - math
