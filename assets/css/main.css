@@ -576,6 +576,7 @@ table {
   margin-right: auto;
   border: 1px solid var(--code-border);
   border-radius: var(--code-border-radius);
+  font-family: var(--font-paragraph);
 }
 
 th,
