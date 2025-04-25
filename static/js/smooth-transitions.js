@@ -244,9 +244,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     
+    // Preserve Mermaid diagram source code before any rendering happens
+    const mermaidElements = element.querySelectorAll('.mermaid');
+    mermaidElements.forEach(item => {
+      if (!item.originalCode) {
+        item.originalCode = item.textContent.trim();
+      }
+    });
+    
     // Re-initialize any components that rely on DOM ready events
     // For example: mermaid, copy-code, etc.
-    if (window.runmermaid) runmermaid();
+    // No need to call runmermaid here as mermaid-handler.js will handle it
     
     // Dispatch a custom event that your components can listen for
     document.dispatchEvent(new CustomEvent('pageTransitionComplete'));
