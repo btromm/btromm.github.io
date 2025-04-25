@@ -34,7 +34,7 @@ homeIntroTitle = "bio"
 homeIntroContent = """
 I'm a neuroscientist interested in how brains interact with consciousness. My research is centered around understanding how the structure and dynamics of neural activity give rise to cognition and consciousness.
 
-I'm currently self-studying mathematics and machine learning -- you can view some of my writing on that [here](https://example.com).
+I'm currently self-studying mathematics and machine learning -- you can view some of my writing on that [here]({{< relref "/posts/self-studying-mathematics/" >}}).
 
 Previously, I was an engineer in the [Neuronal Circuits & Brain Dynamics](https://www.neuronaldynamics.eu/) 
 group at the Paris Brain Institute and a visiting researcher at the

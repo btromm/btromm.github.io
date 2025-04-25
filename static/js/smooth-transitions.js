@@ -72,9 +72,46 @@ document.addEventListener('DOMContentLoaded', () => {
       const newContent = doc.querySelector('.content');
       const newTitle = doc.querySelector('title').textContent;
       
+      // Look for Mermaid script in the new page
+      const newMermaidScript = doc.querySelector('script#mermaid_script');
+      
       // Update the page
       document.title = newTitle;
       contentContainer.innerHTML = newContent.innerHTML;
+      
+      // Handle Mermaid script if found
+      if (newMermaidScript) {
+        // Check if we already have the script
+        let existingScript = document.querySelector('script#mermaid_script');
+        
+        if (!existingScript) {
+          // If not, create a new script element with the same attributes
+          existingScript = document.createElement('script');
+          existingScript.id = 'mermaid_script';
+          existingScript.type = 'module';
+          existingScript.defer = true;
+          
+          // Copy attributes
+          Array.from(newMermaidScript.attributes).forEach(attr => {
+            if (attr.name !== 'src' && attr.name !== 'id' && attr.name !== 'type') {
+              existingScript.setAttribute(attr.name, attr.value);
+            }
+          });
+          
+          // Set src last to avoid premature loading
+          existingScript.src = newMermaidScript.src;
+          
+          // Append to document
+          document.head.appendChild(existingScript);
+        } else {
+          // Update attributes if the script already exists
+          Array.from(newMermaidScript.attributes).forEach(attr => {
+            if (attr.name !== 'src' && attr.name !== 'id' && attr.name !== 'type') {
+              existingScript.setAttribute(attr.name, attr.value);
+            }
+          });
+        }
+      }
       
       // Update browser history
       if (addToHistory) {
@@ -102,6 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
         title: newTitle,
         content: newContent
       };
+      
+      // Dispatch a custom event that our components can listen for
+      document.dispatchEvent(new CustomEvent('pageTransitionComplete'));
       
     } catch (error) {
       console.error('Navigation failed:', error);
