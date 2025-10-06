@@ -1,13 +1,14 @@
 ---
-title: "Sourdough"
-date: "2024-01-08"
-summary: "Reflections on labor"
-description: "Reflections on labor"
+title: Sourdough
+date: 2024-01-08
+summary: Reflections on labor
+description: Reflections on labor
 toc: false
 readTime: false
 autonumber: true
 math: true
-tags: ["poetry"]
+tags:
+  - poetry
 ---
 what is the labor of love, but the foul wind turned palatable?  
 fermented and bubbly, funky and oozing  

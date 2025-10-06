@@ -15,7 +15,7 @@ tag = 'tags'
 
 [params]
 # Meta description
-description = "a blog about neuroscience, complexity, intelligence, and consciousness"
+description = "personal website of bobby tromm"
 
 # Hero image (path relative to static folder)
 heroImage = "/images/hero.jpeg"
@@ -32,9 +32,7 @@ footerContent = "copyright &copy; 2025. made with [hugo](https://gohugo.io/) and
 # Intro on main page, content is markdown
 homeIntroTitle = "bio"
 homeIntroContent = """
-I'm a neuroscientist interested in how brains interact with consciousness. My research is centered around understanding how the structure and dynamics of neural activity give rise to cognition and consciousness.
-
-I'm currently self-studying mathematics and machine learning -- you can view some of my writing on that [here]({{< relref "/posts/self-studying-mathematics/" >}}).
+I'm a neuroscience and machine learning PhD student at University College London. I work on biologically plausible approaches to learning representations (e.g. successor representation).
 
 Previously, I was an engineer in the [Neuronal Circuits & Brain Dynamics](https://www.neuronaldynamics.eu/) 
 group at the Paris Brain Institute and a visiting researcher at the

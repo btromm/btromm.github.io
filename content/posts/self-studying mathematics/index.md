@@ -1,13 +1,6 @@
----
-title: Self-studying mathematics
-date: 2025-04-25
-summary: A short essay on my plans for the next six months.
-tags:
-  - math
-math: true
-draft: false
-toc: true
----
+# Self-studying mathematics
+#math
+
 I'm starting this blog as a way to document progress on a long-standing goal of mine — teaching myself mathematics (with a bit of physics/CS too). I've been wanting to do this ever since I joined a theoretical neuroscience lab in my bachelor's, but for a long time I was a) afraid of failure and b) dealing with some chronic health issues, which have been (mostly) resolved now.
 
 ## Why am I doing this?
@@ -42,7 +35,6 @@ I plan to finish through Mathematical Foundations II/III, which is mostly a revi
 | Multivariable Calculus           | [Stewart's Early Transcendentals](https://www.stewartcalculus.com/_update/20/home.html)                                                                                                                                                                                                                                                 | [Denis Auroux](https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/)                                                                                                                                                                                                                                                                                                                                                    |
 | Probability and Statistics       | [Statistical Thinking for the 21st Century](https://statsthinking21.github.io/statsthinking21-core-site/)<br>[An Introduction to Statistical Learning](https://www.statlearning.com/)<br>[Information Theory, Inference, and Learning Algorithms](https://www.inference.org.uk/itprnn/book.pdf)                                         | [Probabilistic Systems Analysis and Applied Probability](https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/)<br>[Statistics 110](https://projects.iq.harvard.edu/stat110/home)<br>[Statistics for Applications](https://ocw.mit.edu/courses/18-650-statistics-for-applications-fall-2016/)<br>[Information Theory](https://ocw.mit.edu/courses/6-441-information-theory-spring-2016/) |
 | Differential Equations           | [Nonlinear Dynamics and Chaos](https://www.biodyn.ro/course/literatura/Nonlinear_Dynamics_and_Chaos_2018_Steven_H._Strogatz.pdf)                                                                                                                                                                                                        | [MIT](https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/)<br>[ODEs](https://www.youtube.com/playlist?list=PLwIFHT1FWIUJYuP5y6YEM4WWrY4kEmIuS)                                                                                                                                                                                                                                                                         |
-|                                  |                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 The thing about learning a new subject is that you often don't know what you don't know. Mentors provide wonderful roads to follow, but as I progress, I'll inevitably start to focus on one area or another. The above diagram will likely not change much, if at all. When writing this post, a friend told me, "the mission should be to learn enough math to ditch this diagram ASAP and come up with a better one." I share the below diagram as proof of my innocence:
 

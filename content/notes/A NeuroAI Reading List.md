@@ -1,12 +1,8 @@
 ---
 tags:
   - reading-list
-  - neuro
-  - ai
-topics:
-  - "[[NeuroAI]]"
-  - "[[Machine learning|Artificial intelligence]]"
-  - "[[Neuroscience]]"
+  - neuroscience
+  - AI
 date: 2025-04-24
 title: A NeuroAI Reading List
 ---
