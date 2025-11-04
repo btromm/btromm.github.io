@@ -3,7 +3,7 @@ title: "Self-studying mathematics"
 tags: ["math"]
 toc: true
 math: true
-date: 2024-04-11
+date: 2024-04-25
 summary: "Teaching myself math this summer"
 ---
 
