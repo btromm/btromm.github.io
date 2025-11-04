@@ -32,14 +32,10 @@ footerContent = "copyright &copy; 2025. made with [hugo](https://gohugo.io/) and
 # Intro on main page, content is markdown
 homeIntroTitle = "bio"
 homeIntroContent = """
-I'm a neuroscience and machine learning PhD student at University College London. I work on biologically plausible approaches to learning representations (e.g. successor representation).
+I'm a neuroscience and machine learning PhD student at University College London, part of the Ecological Brain Programme. I work on biologically plausible approaches to learning representations (e.g. successor representation) with [Caswell Barry](https://barry-lab.com) and [Tim Behrens](https://www.sainsburywellcome.org/web/groups/behrens-lab).
 
-Previously, I was an engineer in the [Neuronal Circuits & Brain Dynamics](https://www.neuronaldynamics.eu/) 
-group at the Paris Brain Institute and a visiting researcher at the
-[Centre for Eudaimonia and Human Flourishing](https://hedonia.kringelbach.org/) in Oxford,
-where I worked with Morten Kringelbach. I received my bachelor's degree from Brandeis University, 
-where I unsuccessfully solved [neuronal homeostasis](https://github.com/btromm/neuralcorr-thesis/blob/057526cd442187a4b39891109806a88541d18150/thesis/Thesis/BobbyTromm_Thesis2020.pdf) 
-under [Eve Marder](https://sites.google.com/brandeis.edu/marder-lab/).
+Previously, I was an engineer in the [Neuronal Circuits & Brain Dynamics](https://www.neuronaldynamics.eu/) group in Paris, a visiting researcher at the
+[Centre for Eudaimonia and Human Flourishing](https://hedonia.kringelbach.org/) in Oxford, and an RA with [Eve Marder](https://sites.google.com/brandeis.edu/marder-lab/) at Brandeis.
 
 In my free time, I like reading, climbing, and dancing left/right/left/right to repetitive techno rhythms. I also meditate, and (occasionally) write.
 """
