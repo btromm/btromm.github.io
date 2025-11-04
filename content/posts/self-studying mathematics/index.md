@@ -1,5 +1,7 @@
-# Self-studying mathematics
-#math
+---
+title: "Self-studying mathematics"
+tags: ["math"]
+---
 
 I'm starting this blog as a way to document progress on a long-standing goal of mine — teaching myself mathematics (with a bit of physics/CS too). I've been wanting to do this ever since I joined a theoretical neuroscience lab in my bachelor's, but for a long time I was a) afraid of failure and b) dealing with some chronic health issues, which have been (mostly) resolved now.
 
