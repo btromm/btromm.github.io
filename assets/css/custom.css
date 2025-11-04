@@ -31,7 +31,7 @@
 
 
 
-/* Table of contents */
+/* Table of contents - Pure CSS Implementation */
 .content-wrapper {
   position: relative;
   width: 100%;
@@ -41,7 +41,7 @@
 .css-sticky-toc {
   position: absolute;
   top: 0;
-  left: calc(100% + 40px); /* Increased margin to move TOC further right */
+  left: calc(100% + 40px);
   width: 230px;
   height: 100%;
   z-index: 10;
@@ -49,47 +49,36 @@
   font-size: var(--toc-font-size);
 }
 
-/* Use a fallback approach that works more reliably */
 .toc-container {
   position: sticky;
-  margin-top: 50vh; /* Start in middle of viewport */
-  transform: translateY(-50%); /* Adjust to center the TOC itself */
+  top: 2rem;
   padding: 0.5rem 1rem;
-  /* border-left: 1px solid var(--content-secondary); */ /* Removed border */
   background-color: var(--background);
-  transition: top 0.2s ease, opacity 0.5s ease;
-  max-height: 80vh;
+  max-height: calc(100vh - 4rem);
   overflow-y: auto;
   font-family: var(--font-paragraph);
 }
 
-/* Style the TOC header - added to reduce space between heading and entries */
 .toc-container p {
   margin-top: 0;
-  margin-bottom: 0.5rem; /* Reduced space between heading and TOC entries */
+  margin-bottom: 0.5rem;
 }
 
-/* Style the TOC with lines instead of bullet points */
 .toc-container ul {
   list-style: none;
   padding-left: 0;
   margin: 0.3rem 0;
 }
 
-/* Depth-based TOC connectors */
+/* Depth-based TOC indentation */
 .toc-container > nav > ul > li { --depth: 1; }
 .toc-container > nav > ul > li > ul > li { --depth: 2; }
 .toc-container > nav > ul > li > ul > li > ul > li { --depth: 3; }
 .toc-container > nav > ul > li > ul > li > ul > li > ul > li { --depth: 4; }
 
-/* Consolidated TOC item styles */
 .toc-container li {
   position: relative;
   margin: 0.4rem 0;
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: opacity .3s ease, transform .3s ease;
-  transition-delay: calc(var(--depth) * 0.1s);
 }
 
 .toc-container li::before {
@@ -103,23 +92,21 @@
   transform: translateY(-50%);
 }
 
-/* Consolidated TOC link styles */
-.toc-container a,
-.toc-container li > a {
+.toc-container a {
   display: inline-block;
   margin-left: calc(var(--depth) * 1rem + 0.5rem);
   position: relative;
   color: var(--content-secondary);
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease, font-weight 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.toc-container li > a:hover {
+.toc-container a:hover {
   color: var(--primary);
   transform: translateX(3px);
 }
 
-.toc-container li > a::after {
+.toc-container a::after {
   content: '';
   position: absolute;
   bottom: -2px;
@@ -130,78 +117,20 @@
   transition: width 0.3s ease;
 }
 
-.toc-container li > a:hover::after {
+.toc-container a:hover::after {
   width: 100%;
 }
 
-/* Hover & scroll animation effects */
-.toc-container:hover li {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-@keyframes slideFade {
-  from { opacity: 0; transform: translateX(-10px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
-.toc-container li.is-visible {
-  opacity: 1;
-  animation: slideFade .4s ease forwards;
-  animation-delay: calc(var(--depth) * 0.1s);
-}
-
-/* Active TOC link styles */
-.toc-container a.toc-active {
-  color: var(--primary);
-  font-weight: 500;
-  transform: translateX(3px);
-}
-
-.toc-container a.toc-active::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: var(--primary);
-}
-
-/* On scroll, the browser will use this with higher specificity */
-html:not([data-scroll='0']) .toc-container {
-  top: 15vh; /* Move to top after scrolling */
-  transition: top 0.5s ease, opacity 0.5s ease;
-}
-
-.toc-container:hover {
-  opacity: 1;
-}
-
-/* Make sure TOC doesn't overlap with content on narrower screens */
+/* Hide TOC on narrower screens */
 @media screen and (max-width: 1280px) {
   .css-sticky-toc {
     display: none;
   }
 }
 
-/* Default layout for main content so it takes up normal width */
 .main-content {
   width: 100%;
   margin: 0 auto;
-}
-
-/* Add a small script to track scroll position */
-@media screen {
-  @keyframes add-scroll-listener {
-    from { opacity: 0.99; }
-    to { opacity: 1; }
-  }
-
-  html {
-    animation: add-scroll-listener 0.0001s;
-    animation-fill-mode: forwards;
-  }
 }
 
 /* Publication styles */
@@ -531,47 +460,3 @@ a.wikilink.broken:hover {
     color: var(--content-secondary);
 }
 
-/* Mermaid diagram styles */
-.mermaid {
-    position: relative;
-    min-height: 100px;
-    transition: opacity 0.3s ease;
-}
-
-.mermaid-loading {
-    opacity: 0.5;
-}
-
-.mermaid-loading::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 30px;
-    height: 30px;
-    margin: -15px 0 0 -15px;
-    border: 3px solid var(--content-secondary);
-    border-top-color: var(--primary);
-    border-radius: 50%;
-    animation: mermaid-spinner 0.8s linear infinite;
-}
-
-.mermaid-error {
-    padding: 1rem;
-    border: 1px solid var(--code-border);
-    background-color: var(--code-background);
-    color: #ff6b6b;
-    border-radius: 4px;
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-}
-
-.mermaid-rendered {
-    opacity: 1;
-}
-
-@keyframes mermaid-spinner {
-    to {
-        transform: rotate(360deg);
-    }
-}
