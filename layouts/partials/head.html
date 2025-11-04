@@ -1,6 +1,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
+{{/* Prevent white flash during navigation */}}
+<style>
+  html {
+    background-color: #18181d;
+  }
+  @media (prefers-color-scheme: light) {
+    html {
+      background-color: #fcfcfc;
+    }
+  }
+</style>
+
 {{/* Head start hook */}}
 {{ partial "functions/get_hook.html" (dict "hook" "head_start" "context" .) }}
 
