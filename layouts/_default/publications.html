@@ -12,15 +12,34 @@
         <h1 class="single-title">{{ .Title }}</h1>
       </div>
       <div class="single-content">
-        {{ range .Params.publications }}
-        <div class="publication-entry">
-            <div>
-            <div class="publication-date">{{ .year }}</div>
+        {{ $publications := .Params.publications }}
+        {{ $groupedByYear := dict }}
+
+        {{/* Group publications by year */}}
+        {{ range $publications }}
+          {{ $yearStr := printf "%v" .year }}
+          {{ $existing := index $groupedByYear $yearStr | default slice }}
+          {{ $groupedByYear = merge $groupedByYear (dict $yearStr ($existing | append .)) }}
+        {{ end }}
+
+        {{/* Sort years in descending order */}}
+        {{ $years := slice }}
+        {{ range $year, $pubs := $groupedByYear }}
+          {{ $years = $years | append $year }}
+        {{ end }}
+        {{ $years = sort $years }}
+        {{ $years = $years | reverse }}
+
+        {{/* Display publications grouped by year */}}
+        {{ range $years }}
+          {{ $year := . }}
+          {{ $pubs := index $groupedByYear $year }}
+
+          <h2 class="publication-year-heading">{{ $year }}</h2>
+
+          {{ range $pubs }}
+          <div class="publication-entry">
             <div class="publication-citations" data-doi="{{ .url }}"></div>
-            <img src="{{ .thumbnail }}" alt="Thumbnail for {{ .title }}">
-            </div>
-            
-            <div>
             <a href="{{ .url }}" class="publication-title">{{ .title }}</a>
             <div class="publication-meta">
                 <div class="author">{{ .author }}</div>
@@ -37,8 +56,8 @@
               {{ end }}
             </div>
             {{ end }}
-            </div>
-        </div>
+          </div>
+          {{ end }}
         {{ end }}
 
         <!-- Load the citations script -->
