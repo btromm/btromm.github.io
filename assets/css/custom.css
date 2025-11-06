@@ -151,11 +151,11 @@
 .publication-year-heading {
     font-size: 2.5rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--content-primary);
     margin-top: 3rem;
     margin-bottom: 2rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid var(--content-secondary);
 }
 
 .publication-year-heading:first-of-type {
@@ -166,7 +166,7 @@
     display: block;
     margin-bottom: 3rem;
     padding-bottom: 2.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--code-border);
     position: relative;
     width: 100%;
 }
@@ -178,7 +178,7 @@
 
 .publication-citations {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--content-secondary);
     margin-bottom: 0.75rem;
 }
 
@@ -200,7 +200,7 @@
     height: 2px;
     bottom: -2px;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: var(--content-primary);
     transition: width 0.2s ease;
 }
 
@@ -216,7 +216,7 @@
 .publication-summary {
     font-size: 1rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--content-primary);
     margin-bottom: 1.25rem;
 }
 
@@ -230,9 +230,9 @@
 
 .publication-link {
     padding: 0.5rem 1.25rem;
-    background-color: rgba(87, 78, 90, 0.8);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: var(--code-background);
+    color: var(--content-primary);
+    border: 1px solid var(--code-border);
     border-radius: 6px;
     font-family: var(--font-body);
     font-size: 0.9rem;
@@ -242,10 +242,10 @@
 }
 
 .publication-link:hover {
-    background-color: #574e5a;
-    border-color: rgba(255, 255, 255, 0.25);
+    background-color: var(--code-border);
+    border-color: var(--content-secondary);
     transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .publication-item {
@@ -290,20 +290,20 @@
 
 .author {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--content-primary);
     margin-bottom: 0.25rem;
 }
 
 .periodical {
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.65);
+    color: var(--content-secondary);
 }
 
 .citation-count {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--code-background);
     border-radius: 2px;
     font-size: 0.8rem;
     height: 1.2rem;
