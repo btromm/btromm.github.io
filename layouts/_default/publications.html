@@ -13,31 +13,16 @@
       </div>
       <div class="single-content">
         {{ $publications := .Params.publications }}
-        {{ $groupedByYear := dict }}
+        {{ $lastYear := 0 }}
 
-        {{/* Group publications by year */}}
+        {{/* Display publications with year headings */}}
         {{ range $publications }}
-          {{ $yearStr := printf "%v" .year }}
-          {{ $existing := index $groupedByYear $yearStr | default slice }}
-          {{ $groupedByYear = merge $groupedByYear (dict $yearStr ($existing | append .)) }}
-        {{ end }}
+          {{/* Output year heading if it's different from the last one */}}
+          {{ if ne .year $lastYear }}
+            <h2 class="publication-year-heading">{{ .year }}</h2>
+            {{ $lastYear = .year }}
+          {{ end }}
 
-        {{/* Sort years in descending order */}}
-        {{ $years := slice }}
-        {{ range $year, $pubs := $groupedByYear }}
-          {{ $years = $years | append $year }}
-        {{ end }}
-        {{ $years = sort $years }}
-        {{ $years = $years | reverse }}
-
-        {{/* Display publications grouped by year */}}
-        {{ range $years }}
-          {{ $year := . }}
-          {{ $pubs := index $groupedByYear $year }}
-
-          <h2 class="publication-year-heading">{{ $year }}</h2>
-
-          {{ range $pubs }}
           <div class="publication-entry">
             <div class="publication-citations" data-doi="{{ .url }}"></div>
             <a href="{{ .url }}" class="publication-title">{{ .title }}</a>
@@ -57,7 +42,6 @@
             </div>
             {{ end }}
           </div>
-          {{ end }}
         {{ end }}
 
         <!-- Load the citations script -->
