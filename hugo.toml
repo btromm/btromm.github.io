@@ -21,7 +21,7 @@ description = "personal website of bobby tromm"
 heroImage = "/images/hero.jpeg"
 
 # Appearance settings
-theme = 'auto'
+theme = 'light'
 colorPalette = 'default'
 hideHeader = true # Hide header on home page
 showTags = true
@@ -32,12 +32,10 @@ footerContent = "copyright &copy; 2025. made with [hugo](https://gohugo.io/) and
 # Intro on main page, content is markdown
 homeIntroTitle = "bio"
 homeIntroContent = """
-I'm a neuroscience and machine learning PhD student at University College London, part of the Ecological Brain Programme. I work on biologically plausible approaches to learning representations (e.g. successor representation) with [Caswell Barry](https://barry-lab.com) and [Tim Behrens](https://www.sainsburywellcome.org/web/groups/behrens-lab).
+I'm a neuroscience and machine learning PhD student at University College London in the Ecological Brain Programme. I work on biologically plausible representations, with a focus on first-principles: from the teleological lens, and given space & metabolic constraints, how should a brain represent and process information to best support adaptive behaviour?
 
 Previously, I was an engineer in the [Neuronal Circuits & Brain Dynamics](https://www.neuronaldynamics.eu/) group in Paris, a visiting researcher at the
 [Centre for Eudaimonia and Human Flourishing](https://hedonia.kringelbach.org/) in Oxford, and an RA with [Eve Marder](https://sites.google.com/brandeis.edu/marder-lab/) at Brandeis.
-
-In my free time, I like reading, climbing, and dancing left/right/left/right to repetitive techno rhythms. I also meditate, and (occasionally) write.
 """
 
 # Collection to display on home
