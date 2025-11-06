@@ -32,7 +32,7 @@ footerContent = "copyright &copy; 2025. made with [hugo](https://gohugo.io/) and
 # Intro on main page, content is markdown
 homeIntroTitle = "bio"
 homeIntroContent = """
-I'm a neuroscience and machine learning PhD student at University College London in the Ecological Brain Programme. I work on biologically plausible representations, with a focus on first-principles: from the teleological lens, and given space & metabolic constraints, how should a brain represent and process information to best support adaptive behaviour?
+I'm a neuroscience and machine learning PhD student at University College London in the Ecological Brain Programme. I work on biologically plausible representations, with a focus on first-principles: given space & metabolic constraints, how should a brain represent and process information to best support adaptive behaviour?
 
 Previously, I was an engineer in the [Neuronal Circuits & Brain Dynamics](https://www.neuronaldynamics.eu/) group in Paris, a visiting researcher at the
 [Centre for Eudaimonia and Human Flourishing](https://hedonia.kringelbach.org/) in Oxford, and an RA with [Eve Marder](https://sites.google.com/brandeis.edu/marder-lab/) at Brandeis.
