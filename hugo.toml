@@ -21,7 +21,7 @@ description = "personal website of bobby tromm"
 heroImage = "/images/hero.jpeg"
 
 # Appearance settings
-theme = 'light'
+theme = 'dark'
 colorPalette = 'default'
 hideHeader = true # Hide header on home page
 showTags = true
@@ -44,7 +44,7 @@ homeCollection = 'posts'
 
 # Lists parameters
 paginationSize = 100
-listSummaries = true
+listSummaries = false
 listDateFormat = '2 Jan 2006'
 
 # Breadcrumbs
