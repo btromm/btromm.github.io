@@ -1,11 +1,8 @@
 ---
 title: Sourdough
 date: 2024-01-08
-summary: Reflections on labor
-description: Reflections on labor
-toc: false
-readTime: false
-autonumber: true
+summary:
+description: A poem first recited in front of a big group of friends in upstate NY
 math: true
 tags:
   - poetry
