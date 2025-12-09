@@ -72,6 +72,10 @@ li {
         margin: 0 0.2em 0.15em -1.25em;
         vertical-align: middle;
     }
+
+    &::marker {
+        font-family: var(--font-body);
+    }
 }
 
 a {
