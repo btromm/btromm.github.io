@@ -443,6 +443,10 @@ p {
     font-family: var(--font-paragraph);
 }
 
+li::marker {
+    font-family: var(--font-paragraph);
+}
+
 /* Ensure tags display in their original case */
 .single-tags span a {
     text-transform: lowercase;
