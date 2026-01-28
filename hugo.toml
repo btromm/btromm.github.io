@@ -27,7 +27,7 @@ hideHeader = true # Hide header on home page
 showTags = true
 
 showFooter = true
-footerContent = "copyright &copy; 2025. made with [hugo](https://gohugo.io/) and [typo](https://github.com/tomfran/typo)"
+footerContent = "copyright &copy; 1234. made with [hugo](https://gohugo.io/) and [typo](https://github.com/tomfran/typo)"
 
 # Intro on main page, content is markdown
 homeIntroTitle = ""
@@ -63,14 +63,12 @@ name = "github"
 url = "https://github.com/btromm"
 
 [[params.social]]
-name = "bluesky"
-url = "https://bsky.app/profile/btromm.bsky.social"
+name = "googlescholar"
+url = "https://scholar.google.com/citations?user=hJl27VcAAAAJ&hl=en"
 
 [[params.social]]
 name = "twitter"
 url = "https://x.com/b_tromm"
-
-
 
 # Main menu pages
 [[params.menu]]
