@@ -1,6 +1,35 @@
 :root {
     --main-width: 900px; /* Main content width */
     --toc-font-size: 1.1rem; /* Table of contents font size */
+
+    /* Typography overrides */
+    --font-body: "Literata";
+    --font-paragraph: "Source Sans";
+    --font-mono: "IBM Plex Mono";
+
+    --h1-font-size: 1.5em;
+    --h2-font-size: 1.3em;
+    --hx-font-size: 1.1em;
+
+    --p-font-size: 1em;
+    --p-line-height: 1.4em;
+    --caption-font-size: 0.8em;
+
+    /* Custom component font sizes */
+    --publication-title-font-size: 1.15rem;
+    --publication-title-font-size-mobile: 1.15rem;
+    --publication-meta-font-size: 1rem;
+    --publication-periodical-font-size: 1rem;
+    --publication-year-font-size: 1.3rem;
+    --publication-year-font-size-mobile: 1.3rem;
+    --publication-link-font-size: 1rem;
+    --breadcrumbs-font-size: 0.85rem;
+    --tag-buttons-heading-font-size: 1.3rem;
+    --tag-button-font-size: 1rem;
+    --form-heading-font-size: 1.1rem;
+    --form-button-font-size: 0.9rem;
+    --backlinks-heading-font-size: 1.1rem;
+    --backlinks-context-font-size: 0.9rem;
 }
 
 /* Hero Image Styles */
@@ -149,7 +178,7 @@
 /* Ensure publications inherit the main-content and content-wrapper styles */
 
 .publication-year-heading {
-    font-size: 2.5rem;
+    font-size: var(--publication-year-font-size);
     font-weight: 700;
     color: var(--content-primary);
     margin-top: 3rem;
@@ -172,52 +201,24 @@
 }
 
 .publication-entry:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.publication-citations {
-    font-size: 0.9rem;
-    color: var(--content-secondary);
-    margin-bottom: 0.75rem;
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 /* Main content styling */
 .publication-title {
-    position: relative;
-    text-decoration: none;
-    font-size: 1.3rem;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-size: var(--publication-title-font-size);
     font-weight: 600;
-    line-height: 1.4;
+    line-height: 1.2;
     display: inline-block;
-    margin-bottom: 0.75rem;
-}
-
-.publication-title:after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    background-color: var(--content-primary);
-    transition: width 0.2s ease;
-}
-
-.publication-title:hover:after {
-    width: 100%;
+    margin-bottom: 0.5rem;
 }
 
 .publication-meta {
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.publication-summary {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--content-primary);
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
 }
 
 .publication-links {
@@ -235,7 +236,7 @@
     border: 1px solid var(--code-border);
     border-radius: 6px;
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: var(--publication-link-font-size);
     font-weight: 500;
     text-decoration: none;
     transition: all 0.2s ease;
@@ -248,86 +249,33 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.publication-item {
-    display: flex;
-    margin-bottom: 3rem;
-    position: relative;
-}
-
-.thumbnail {
-    flex: 0 0 230px;
-    margin-right: 2rem;
-}
-
-.publication-thumbnail img,
-.thumbnail img {
-    width: 100%;
-    border-radius: var(--img-border-radius);
-    border: 1px solid var(--img-border-color);
-}
-
-.publication-content {
-    flex: 1;
-}
-
-.publication-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 0.5rem;
-}
-
-.year {
-    font-size: 3rem;
-    color: rgba(
-        100,
-        150,
-        255,
-        0.7
-    ); /* Changed from rgba(255, 255, 255, 0.5) to a blue shade */
-    flex-shrink: 0;
-}
-
 .author {
-    font-size: 1rem;
+    font-size: var(--publication-meta-font-size);
     color: var(--content-primary);
     margin-bottom: 0.25rem;
 }
 
 .periodical {
-    font-size: 0.95rem;
+    font-size: var(--publication-periodical-font-size);
     color: var(--content-secondary);
-}
-
-.citation-count {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--code-background);
-    border-radius: 2px;
-    font-size: 0.8rem;
-    height: 1.2rem;
-    min-width: 1.2rem;
-    margin-left: 0.5rem;
-    padding: 0 0.2rem;
 }
 
 /* Responsive design for publications */
 @media screen and (max-width: 768px) {
-  .publication-year-heading {
-    font-size: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-  }
+    .publication-year-heading {
+        font-size: var(--publication-year-font-size-mobile);
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+    }
 
-  .publication-entry {
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-  }
+    .publication-entry {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+    }
 
-  .publication-title {
-    font-size: 1.15rem;
-  }
+    .publication-title {
+        font-size: var(--publication-title-font-size-mobile);
+    }
 }
 
 /* Gilles Castel style breadcrumbs */
@@ -343,13 +291,47 @@
 
 .breadcrumbs-back a {
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: var(--breadcrumbs-font-size);
     color: var(--content-secondary);
 }
 
 .breadcrumbs-meta {
-    font-size: 0.85rem;
+    font-size: var(--breadcrumbs-font-size);
     color: var(--content-secondary);
+}
+
+.tag-buttons-heading {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: var(--tag-buttons-heading-font-size);
+    color: var(--content-primary);
+    text-transform: lowercase;
+}
+
+.tag-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-button {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--code-border);
+    border-radius: 999px;
+    font-size: var(--tag-button-font-size);
+    font-family: var(--font-mono);
+    color: var(--content-primary);
+    background: var(--code-background);
+    text-decoration: none;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.tag-button:hover {
+    background-color: var(--code-border);
+    border-color: var(--content-secondary);
 }
 
 /* Newsletter Signup Form Styling */
@@ -372,7 +354,7 @@
 .form-heading {
     margin-top: 0;
     margin-bottom: 1rem;
-    font-size: 1.1rem;
+    font-size: var(--form-heading-font-size);
     color: var(--content-primary, #333);
 }
 
@@ -389,17 +371,6 @@
     }
 }
 
-.form-content input[type="email"] {
-    flex: 1;
-    min-width: 0;
-    padding: 0.6rem 1rem;
-    border: 1px solid var(--code-border, #ccc);
-    border-radius: 4px;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    background-color: var(--background, white);
-}
-
 .form-content button {
     padding: 0.6rem 1.2rem;
     background-color: #574e5a; /* Higher contrast blue color */
@@ -407,7 +378,7 @@
     border: none;
     border-radius: 4px;
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: var(--form-button-font-size);
     font-weight: 600; /* Added font weight for better contrast */
     cursor: pointer;
     transition: background-color 0.2s;
@@ -418,14 +389,6 @@
 }
 
 /* Font Face Definitions */
-:root {
-    --font-paragraph: "Source Sans";
-    --font-mono: "JetBrains Mono";
-
-    --p-font-size: 1em;
-    --p-line-height: 1.5em;
-    --caption-font-size: 0.8em;
-}
 
 @font-face {
     font-family: "Source Sans";
@@ -487,7 +450,7 @@ a.wikilink.broken:hover {
 
 .backlinks h3 {
     margin-top: 0;
-    font-size: 1.1rem;
+    font-size: var(--backlinks-heading-font-size);
     color: var(--content-primary);
     border-bottom: 1px solid var(--content-secondary);
     padding-bottom: 0.5rem;
@@ -521,7 +484,7 @@ a.wikilink.broken:hover {
 }
 
 .backlinks .backlink-context {
-    font-size: 0.9rem;
+    font-size: var(--backlinks-context-font-size);
     margin: 0.3rem 0 0 1rem;
     color: var(--content-secondary);
 }

@@ -1,53 +1,49 @@
-{{ define "main" }}
+{{ define "main" }} {{ if not .IsHome }} {{ partial "breadcrumbs.html" . }} {{
+end }}
 
-{{ if not .IsHome }}
-{{ partial "breadcrumbs.html" . }}
-{{ end }}
-
-<div>
-  {{/* Main content container */}}
-  <div class="content-wrapper">
+<div class="content-wrapper">
     <div class="main-content">
-      <div class="single-intro-container">
-        <h1 class="single-title">{{ .Title }}</h1>
-      </div>
-      <div class="single-content">
-        {{ $publications := .Params.publications }}
-        {{ $lastYear := 0 }}
-
-        {{/* Display publications with year headings */}}
-        {{ range $publications }}
-          {{/* Output year heading if it's different from the last one */}}
-          {{ if ne .year $lastYear }}
+        <div class="single-intro-container">
+            <h1 class="single-title">{{ .Title }}</h1>
+        </div>
+        <div class="single-content">
+            {{ $publications := .Params.publications }} {{ $lastYear := 0 }} {{
+            range $publications }} {{ if ne .year $lastYear }}
             <h2 class="publication-year-heading">{{ .year }}</h2>
-            {{ $lastYear = .year }}
-          {{ end }}
+            {{ $lastYear = .year }} {{ end }}
 
-          <div class="publication-entry">
-            <div class="publication-citations" data-doi="{{ .url }}"></div>
-            <a href="{{ .url }}" class="publication-title">{{ .title }}</a>
-            <div class="publication-meta">
-                <div class="author">{{ .author }}</div>
-                <div class="periodical"><em>{{ .periodical }}</em>, {{ .year }}</div>
-            </div>
-            <div class="publication-summary">{{ .summary }}</div>
-            {{ if or .pdf .code }}
-            <div class="publication-links">
-              {{if .pdf }}
-                <a href="{{ .pdf }}" class="publication-link" target="_blank">PDF</a>
-              {{ end }}
-              {{ if .code }}
-                <a href="{{ .code }}" class="publication-link" target="_blank">Code</a>
-              {{ end }}
+            <div class="publication-entry">
+                <a href="{{ .url }}" class="publication-title">{{ .title }}</a>
+
+                <div class="publication-meta">
+                    <div class="author">{{ .author }}</div>
+                    <div class="periodical">
+                        <em>{{ .periodical }}</em>, {{ .year }}
+                    </div>
+                </div>
+
+                {{ if or .pdf .code }}
+                <div class="publication-links">
+                    {{ if .pdf }}
+                    <a
+                        href="{{ .pdf }}"
+                        class="publication-link"
+                        target="_blank"
+                        >PDF</a
+                    >
+                    {{ end }} {{ if .code }}
+                    <a
+                        href="{{ .code }}"
+                        class="publication-link"
+                        target="_blank"
+                        >Code</a
+                    >
+                    {{ end }}
+                </div>
+                {{ end }}
             </div>
             {{ end }}
-          </div>
-        {{ end }}
-
-        <!-- Load the citations script -->
-        <script src="/js/citations.js"></script>
-      </div>
+        </div>
     </div>
-  </div>
 </div>
 {{ end }}

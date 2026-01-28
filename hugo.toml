@@ -18,10 +18,10 @@ tag = 'tags'
 description = "personal website of bobby tromm"
 
 # Hero image (path relative to static folder)
-heroImage = "/images/hero.jpeg"
+#heroImage = "/images/hero.jpeg"
 
 # Appearance settings
-theme = 'dark'
+theme = 'light'
 colorPalette = 'default'
 hideHeader = true # Hide header on home page
 showTags = true
@@ -30,9 +30,9 @@ showFooter = true
 footerContent = "copyright &copy; 2025. made with [hugo](https://gohugo.io/) and [typo](https://github.com/tomfran/typo)"
 
 # Intro on main page, content is markdown
-homeIntroTitle = "bio"
+homeIntroTitle = ""
 homeIntroContent = """
-I'm a neuroscience and machine learning PhD student at University College London in the Ecological Brain Programme. I work on biologically plausible representations, with a focus on first-principles: given space & metabolic constraints, how should a brain represent and process information to best support adaptive behaviour?
+I'm a neuroscience and machine learning PhD student at University College London in the Ecological Brain Programme, supervised by Caswell Barry and Tim Behrens. I work on biologically plausible representations, with a focus on first-principles: given space & metabolic constraints, how should a brain represent and process information to best support adaptive behaviour?
 
 Previously, I was an engineer in the [Neuronal Circuits & Brain Dynamics](https://www.neuronaldynamics.eu/) group in Paris, a visiting researcher at the
 [Centre for Eudaimonia and Human Flourishing](https://hedonia.kringelbach.org/) in Oxford, and an RA with [Eve Marder](https://sites.google.com/brandeis.edu/marder-lab/) at Brandeis.
@@ -55,6 +55,14 @@ home = "Home"
 
 # Social icons
 [[params.social]]
+name = "gmail"
+url = "mailto:robert.tromm.25@ucl.ac.uk"
+
+[[params.social]]
+name = "github"
+url = "https://github.com/btromm"
+
+[[params.social]]
 name = "bluesky"
 url = "https://bsky.app/profile/btromm.bsky.social"
 
@@ -62,13 +70,7 @@ url = "https://bsky.app/profile/btromm.bsky.social"
 name = "twitter"
 url = "https://x.com/b_tromm"
 
-[[params.social]]
-name = "linkedin"
-url = "https://www.linkedin.com/in/btromm/"
 
-[[params.social]]
-name = "github"
-url = "https://github.com/btromm"
 
 # Main menu pages
 [[params.menu]]

@@ -1,32 +1,27 @@
 {{ define "main" }}
 
 <div class="list-container">
-
     {{ partial "breadcrumbs.html" . }}
 
-    <h1>{{ .Title }}</h1>
-    {{ .Content }}
-
-    {{ $tagsPage := eq .Title "Tags"}}
-
-    {{ $paginationSize := 1}}
-    {{ if (gt .Site.Params.paginationSize 0) }}
-    {{ $paginationSize = .Site.Params.paginationSize }}
+    <h1>{{ lower .Title }}</h1>
+    {{ .Content }} {{ $tagsPage := eq .Title "Tags" }} {{ $paginationSize := 1
+    }} {{ if gt .Site.Params.paginationSize 0 }} {{ $paginationSize =
+    .Site.Params.paginationSize }} {{ end }} {{ $paginator := .Paginate (.Pages)
+    $paginationSize }} {{ range $paginator.Pages }} {{ if $tagsPage }} {{
+    partial "tag-entry.html" . }} {{ else }} {{ partial "post-entry.html" . }}
+    {{ end }} {{ end }} {{ partial "pagination-controls.html" $paginator }} {{
+    if and (eq .Kind "term") (eq .Section "tags") }} {{ $currentTag := lower
+    .Data.Term }}
+    <h2 class="tag-buttons-heading">other tags</h2>
+    <div class="tag-buttons">
+        {{ range $tag, $taxonomy := .Site.Taxonomies.tags }} {{ if ne (lower
+        $tag) $currentTag }}
+        <a class="tag-button" href="{{ $taxonomy.Page.RelPermalink }}">
+            {{ lower $taxonomy.Page.Title }}
+        </a>
+        {{ end }} {{ end }}
+    </div>
     {{ end }}
-
-    {{ $paginator := .Paginate (.Pages) $paginationSize }}
-
-    {{ range $index, $page := $paginator.Pages }}
-
-    {{ if $tagsPage }}
-    {{ partial "tag-entry.html" $page}}
-    {{ else }}
-    {{ partial "post-entry.html" $page}}
-    {{ end }}
-
-    {{ end }}
-
-    {{ partial "pagination-controls.html" $paginator}}
-
 </div>
+
 {{ end }}
