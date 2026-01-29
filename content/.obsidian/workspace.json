@@ -11,10 +11,14 @@
             "id": "be505e50433ea4e4",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "photos/_index.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "_index"
             }
           }
         ]
@@ -179,8 +183,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "be505e50433ea4e4",
+  "active": "9a33d6ba21beac2c",
   "lastOpenFiles": [
+    "Untitled.md",
     "photos/_index.md",
     "posts/self-studying mathematics/index.md",
     "photos/IMG_0884.png",
@@ -194,7 +199,6 @@
     "photos/2023-Skiboom.png",
     "photos/2024-Tokyo-Shibuya.png",
     "photos/IMG_0895.png.sb-0535ddbf-MzEKrO",
-    "Untitled.md",
     "posts/an update on my self-studying/index.md",
     "photos/index.md",
     "posts/sourdough/index.md",
