@@ -69,6 +69,10 @@
     max-width: var(--main-width);
 }
 
+.photos-layout .content-wrapper {
+    max-width: 100%;
+}
+
 .css-sticky-toc {
     position: absolute;
     top: 0;
@@ -507,82 +511,83 @@ a.wikilink.broken:hover {
     --photos-grid-gap: 0.5rem;
     --photos-img-fit: cover;
     --photos-img-background: transparent;
-    --photos-max-width: 100vw;
-    --photos-margin-inline: calc((100vw - var(--main-width)) / -2 - var(--main-padding));
+    --photos-max-width: 100%;
+    --photos-margin-inline: 0;
     --photos-text-width: var(--main-width);
 }
 
 /* Container for photos layout pages */
 .photos-layout {
-    overflow-x: hidden;
+    overflow-x: visible;
 }
 
 /*
-   Multi-image rows: paragraphs containing consecutive figures
+   Multi-image rows: paragraphs containing consecutive images
    Uses :has() with sibling combinator to detect multiple images
 */
-.photos-layout p:has(> figure ~ figure) {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-    grid-column-gap: var(--photos-grid-gap);
-    grid-row-gap: 0;
+.photos-layout p:has(> .photo-inline ~ .photo-inline),
+.photos-layout p.photo-row-multi {
+    display: flex;
+    gap: var(--photos-grid-gap);
+    align-items: stretch;
     margin-block: var(--photos-grid-gap);
     width: var(--photos-max-width);
     max-width: var(--photos-max-width);
     margin-inline: var(--photos-margin-inline);
 }
 
-/* Figures in multi-image rows */
-.photos-layout p:has(> figure ~ figure) figure {
+/* Multi-image rows: aspect-ratio-based flex */
+.photos-layout p:has(> .photo-inline ~ .photo-inline) .photo-inline {
+    display: block;
+    flex: calc(var(--w, 1) / var(--h, 1)) 1 0%;  /* flex-grow = aspect ratio */
+    min-width: 0;
     margin: 0;
-    width: 100%;
-    height: 100%;
 }
 
-.photos-layout p:has(> figure ~ figure) figure .img-container {
+.photos-layout p:has(> .photo-inline ~ .photo-inline) .photo-inline .img-container {
+    display: block;
     width: 100%;
-    height: 100%;
-    max-height: none;
-    aspect-ratio: unset;
+    height: auto;
 }
 
-.photos-layout p:has(> figure ~ figure) figure img {
+.photos-layout p:has(> .photo-inline ~ .photo-inline) .photo-inline img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: var(--photos-img-fit);
     background: var(--photos-img-background);
 }
 
 /* Hide captions in multi-image rows */
-.photos-layout p:has(> figure ~ figure) figcaption {
+.photos-layout p:has(> .photo-inline ~ .photo-inline) .photo-inline .caption-container {
     display: none;
 }
 
 /*
-   Single image rows: also go full width
+   Single image rows: fill width, preserve aspect ratio
 */
-.photos-layout p:has(> figure:only-child) {
+.photos-layout p:has(> .photo-inline:only-child) {
     width: var(--photos-max-width);
     max-width: var(--photos-max-width);
     margin-inline: var(--photos-margin-inline);
     margin-block: var(--photos-grid-gap);
 }
 
-.photos-layout p:has(> figure:only-child) figure {
+.photos-layout p:has(> .photo-inline:only-child) .photo-inline {
+    display: block;
     margin: 0;
     width: 100%;
 }
 
-.photos-layout p:has(> figure:only-child) figure .img-container {
-    max-height: 80vh;
+.photos-layout p:has(> .photo-inline:only-child) .photo-inline .img-container {
+    display: block;
     width: 100%;
 }
 
-.photos-layout p:has(> figure:only-child) figure img {
+.photos-layout p:has(> .photo-inline:only-child) .photo-inline img {
     width: 100%;
     height: auto;
     max-height: 80vh;
-    object-fit: var(--photos-img-fit);
+    object-fit: contain;
 }
 
 /*
@@ -594,7 +599,7 @@ a.wikilink.broken:hover {
 .photos-layout h4,
 .photos-layout h5,
 .photos-layout h6,
-.photos-layout p:not(:has(figure)),
+.photos-layout p:not(:has(.photo-inline)),
 .photos-layout ul,
 .photos-layout ol,
 .photos-layout blockquote,
@@ -602,13 +607,6 @@ a.wikilink.broken:hover {
 .photos-layout hr,
 .photos-layout .single-intro-container {
     max-width: var(--photos-text-width);
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 1024px) {
-    :root {
-        --photos-margin-inline: calc(-1 * var(--main-padding));
-    }
 }
 
 @media screen and (max-width: 640px) {
@@ -625,6 +623,18 @@ a.wikilink.broken:hover {
 .photos-contained {
     --photos-max-width: 100%;
     --photos-margin-inline: 0;
+}
+
+/* Full-bleed (default when no width modifier is set) - small margins matching gap */
+.photos-layout:not(.photos-contained):not(.photos-wide) {
+    --photos-max-width: calc(100vw - 2 * var(--photos-grid-gap));
+    --photos-margin-inline: calc(50% - 50vw + var(--photos-grid-gap));
+}
+
+/* Wide width (between contained and full bleed) - breaks out of content, up to 1200px */
+.photos-wide {
+    --photos-max-width: min(1200px, calc(100vw - 2 * var(--photos-grid-gap)));
+    --photos-margin-inline: calc(50% - min(600px, 50vw - var(--photos-grid-gap)));
 }
 
 /* Different gap sizes */
