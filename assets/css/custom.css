@@ -488,3 +488,164 @@ a.wikilink.broken:hover {
     margin: 0.3rem 0 0 1rem;
     color: var(--content-secondary);
 }
+
+/* ============================================
+   Photo Grid / Masonry Layout
+   ============================================
+   Usage: Add layout = "photos" to page front matter
+   - Images on the same line become columns in a row
+   - A blank line between images creates a new row
+   - Text width defaults to normal content width
+   - Image rows are full width by default
+
+   Inspired by Kepano's obsidian-minimal-publish
+   https://github.com/kepano/obsidian-minimal-publish
+*/
+
+:root {
+    /* Photo grid configuration */
+    --photos-grid-gap: 0.5rem;
+    --photos-img-fit: cover;
+    --photos-img-background: transparent;
+    --photos-max-width: 100vw;
+    --photos-margin-inline: calc((100vw - var(--main-width)) / -2 - var(--main-padding));
+    --photos-text-width: var(--main-width);
+}
+
+/* Container for photos layout pages */
+.photos-layout {
+    overflow-x: hidden;
+}
+
+/*
+   Multi-image rows: paragraphs containing consecutive figures
+   Uses :has() with sibling combinator to detect multiple images
+*/
+.photos-layout p:has(> figure ~ figure) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    grid-column-gap: var(--photos-grid-gap);
+    grid-row-gap: 0;
+    margin-block: var(--photos-grid-gap);
+    width: var(--photos-max-width);
+    max-width: var(--photos-max-width);
+    margin-inline: var(--photos-margin-inline);
+}
+
+/* Figures in multi-image rows */
+.photos-layout p:has(> figure ~ figure) figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.photos-layout p:has(> figure ~ figure) figure .img-container {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    aspect-ratio: unset;
+}
+
+.photos-layout p:has(> figure ~ figure) figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: var(--photos-img-fit);
+    background: var(--photos-img-background);
+}
+
+/* Hide captions in multi-image rows */
+.photos-layout p:has(> figure ~ figure) figcaption {
+    display: none;
+}
+
+/*
+   Single image rows: also go full width
+*/
+.photos-layout p:has(> figure:only-child) {
+    width: var(--photos-max-width);
+    max-width: var(--photos-max-width);
+    margin-inline: var(--photos-margin-inline);
+    margin-block: var(--photos-grid-gap);
+}
+
+.photos-layout p:has(> figure:only-child) figure {
+    margin: 0;
+    width: 100%;
+}
+
+.photos-layout p:has(> figure:only-child) figure .img-container {
+    max-height: 80vh;
+    width: 100%;
+}
+
+.photos-layout p:has(> figure:only-child) figure img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: var(--photos-img-fit);
+}
+
+/*
+   Text content stays at normal width
+*/
+.photos-layout h1,
+.photos-layout h2,
+.photos-layout h3,
+.photos-layout h4,
+.photos-layout h5,
+.photos-layout h6,
+.photos-layout p:not(:has(figure)),
+.photos-layout ul,
+.photos-layout ol,
+.photos-layout blockquote,
+.photos-layout pre,
+.photos-layout hr,
+.photos-layout .single-intro-container {
+    max-width: var(--photos-text-width);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    :root {
+        --photos-margin-inline: calc(-1 * var(--main-padding));
+    }
+}
+
+@media screen and (max-width: 640px) {
+    :root {
+        --photos-grid-gap: 0.25rem;
+    }
+}
+
+/* ============================================
+   Modifier classes for photos pages
+   ============================================ */
+
+/* Contained width (not full bleed) */
+.photos-contained {
+    --photos-max-width: 100%;
+    --photos-margin-inline: 0;
+}
+
+/* Different gap sizes */
+.photos-gap-none {
+    --photos-grid-gap: 0;
+}
+
+.photos-gap-sm {
+    --photos-grid-gap: 0.25rem;
+}
+
+.photos-gap-md {
+    --photos-grid-gap: 0.5rem;
+}
+
+.photos-gap-lg {
+    --photos-grid-gap: 1rem;
+}
+
+/* Image fit options */
+.photos-contain {
+    --photos-img-fit: contain;
+    --photos-img-background: var(--code-background);
+}
