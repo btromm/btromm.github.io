@@ -32,7 +32,7 @@ footerContent = "copyright &copy; 1234. made with [hugo](https://gohugo.io/) and
 # Intro on main page, content is markdown
 homeIntroTitle = ""
 homeIntroContent = """
-I'm a neuroscience and machine learning PhD student at UCL, supervised by Caswell Barry and Tim Behrens. My research currently focuses on how the hippocampal formation might encode something like the successor representation.
+I'm a neuroscience and machine learning PhD student at UCL, supervised by Caswell Barry and Tim Behrens. I work on biologically plausible representations, with a focus on first-principles: given space & metabolic constraints, how should a brain represent and process information to best support adaptive behaviour?
 
 Previously, I was an engineer in the [Neuronal Circuits & Brain Dynamics](https://www.neuronaldynamics.eu/) group in Paris, a visiting researcher at the
 [Centre for Eudaimonia and Human Flourishing](https://hedonia.kringelbach.org/) in Oxford, and an RA with [Eve Marder](https://sites.google.com/brandeis.edu/marder-lab/) at Brandeis.
