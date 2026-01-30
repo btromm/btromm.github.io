@@ -2,7 +2,7 @@
 title: Photos
 layout: photos
 hideBackToTop: true
-photosWidth: full-bleed
+photosWidth: wide
 photosGap: lg
 photosFit: contain
 ---
