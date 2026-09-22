@@ -2,6 +2,7 @@ baseURL = 'https://btromm.github.io/'
 languageCode = 'en-us'
 title = 'bobby tromm'
 theme = 'typo'
+timeout = '10m'
 
 # Google analytics code
 googleAnalytics = "G-DCHF3FSFSJ"

@@ -5,11 +5,11 @@ hideBackToTop: true
 photosWidth: wide
 photosGap: lg
 photosFit: contain
+build:
+    publishResources: false
 ---
 
 A collection of my photography, shot on Pentax IQZoom, Olympus AF-1, Olympus XA3, and Minolta Freedom.
-
-
 
  ![](Japan_2024_Forest.png) ![](2024-Tokyo-Shibuya.png)
 
