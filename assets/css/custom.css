@@ -3,9 +3,9 @@
     --toc-font-size: 1.1rem; /* Table of contents font size */
 
     /* Typography overrides */
-    --font-body: "Literata";
-    --font-paragraph: "Source Sans";
-    --font-mono: "IBM Plex Mono";
+    --font-body: "Literata", Georgia, Cambria, "Noto Serif", ui-serif, serif;
+    --font-paragraph: "Source Sans", "Helvetica Neue", Arial, ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
     --h1-font-size: 1.5em;
     --h2-font-size: 1.3em;
@@ -404,6 +404,30 @@
     font-family: "Source Sans";
     src: url("/fonts/Source Sans/SourceSans3-Variable.ttf");
     font-style: normal;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("/fonts/IBMPlexMono/ibm-plex-mono-latin-400-normal.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("/fonts/IBMPlexMono/ibm-plex-mono-latin-400-italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("/fonts/IBMPlexMono/ibm-plex-mono-latin-700-normal.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 p,
