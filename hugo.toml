@@ -77,6 +77,10 @@ name = "posts"
 url = "/posts"
 
 [[params.menu]]
+name = "resources"
+url = "/resources"
+
+[[params.menu]]
 name = "publications"
 url = "/publications"
 
