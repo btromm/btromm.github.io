@@ -76,9 +76,9 @@ url = "https://x.com/b_tromm"
 name = "posts"
 url = "/posts"
 
-[[params.menu]]
-name = "resources"
-url = "/resources"
+# [[params.menu]]
+# name = "resources"
+# url = "/resources"
 
 [[params.menu]]
 name = "publications"
