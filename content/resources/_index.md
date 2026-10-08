@@ -1,6 +1,7 @@
 ---
 title: "resources"
 hideTitle: true
+draft: true
 ---
 
 ## writing good code
