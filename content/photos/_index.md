@@ -1,6 +1,7 @@
 ---
 title: Photos
 layout: photos
+toc: true
 hideBackToTop: true
 photosWidth: wide
 photosGap: lg
