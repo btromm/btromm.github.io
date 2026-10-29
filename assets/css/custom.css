@@ -660,3 +660,12 @@ a.wikilink.broken:hover {
     --photos-img-fit: contain;
     --photos-img-background: var(--code-background);
 }
+
+/* Keep superscripts (e.g. footnote markers) from changing line height.
+   Copied from the typo theme, whose stylesheet with this rule isn't loaded here. */
+sup {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+    line-height: 0;
+}
