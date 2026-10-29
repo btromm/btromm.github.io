@@ -6,13 +6,16 @@
   {{ partial "head.html" . }}
 </head>
 
-{{ $theme := "auto"}}
+<body>
+  {{/* Mirror the theme chosen in head.html onto <body>, where Typo's CSS looks for it */}}
+  <script>
+    document.body.classList.add(
+      document.documentElement.classList.contains("dark") ? "dark" : "light"
+    );
+  </script>
 
-{{ with .Param "theme" }}
-{{ $theme = .}}
-{{ end }}
-
-<body class="{{ $theme }}">
+  <button type="button" class="theme-toggle" role="switch" aria-checked="false"
+    aria-label="Dark mode" title="Toggle dark mode"></button>
 
   <div class="content">
     <header>
@@ -36,6 +39,6 @@
   {{ end }}
 </body>
 
-<script src="{{ "js/theme-switch.js" | relURL }}"></script>
+<script defer src="{{ "js/theme-switch.js" | relURL }}"></script>
 <script defer src="{{ "js/copy-code.js" | relURL }}"></script>
 </html>

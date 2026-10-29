@@ -3,6 +3,20 @@
 {{/* Empty icon so browsers don't fall back to the theme's /favicon.ico */}}
 <link rel="icon" href="data:,">
 
+{{/* Pick the theme before anything paints: saved choice, else the site
+     default, else the OS setting. theme-switch.js handles the toggle. */}}
+<script>
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem("theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = {{ .Param "theme" | default "auto" }};
+    if (t !== "light" && t !== "dark") {
+      t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.classList.add(t);
+  })();
+</script>
+
 
 {{/* Head start hook */}}
 {{ partial "functions/get_hook.html" (dict "hook" "head_start" "context" .) }}
