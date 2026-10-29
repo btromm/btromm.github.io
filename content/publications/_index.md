@@ -6,6 +6,5 @@ publications:
     author: "Clayton R Coleman, Kenneth Shinozuka, Robert Tromm, and 7 more authors"
     periodical: "Human Brain Mapping"
     year: 2025
-    thumbnail: "/images/publications/dorsolateral.jpg"
     url: "https://doi.org/10.1002/hbm.70209"
 ---
