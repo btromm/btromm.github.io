@@ -96,7 +96,8 @@ url = '/photos'
    [markup.goldmark.renderer]
       unsafe = true
    [markup.highlight]
-      style = 'algol'
+      # Use CSS classes so Typo's syntax-highlighting.css styles code in light and dark mode
+      noClasses = false
 
 # Table of contents configuration
 [markup.tableOfContents]
