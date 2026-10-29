@@ -28,6 +28,51 @@
     --tag-button-font-size: 1rem;
 }
 
+/* Monospace font (Typo's fonts.css ships Monaspace instead) */
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("/fonts/IBM Plex Mono/IBMPlexMono-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Mono";
+    src: url("/fonts/IBM Plex Mono/IBMPlexMono-SemiBold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Tweaks to Typo's main.css */
+.header-title {
+    font-size: 2em;
+}
+
+.header p {
+    margin-top: var(--header-menu-top-gap);
+}
+
+.social-icons {
+    margin-bottom: 0;
+}
+
+/* Read time under the post title (our single.html) */
+.single-readtime {
+    margin-top: 0.5rem;
+    color: var(--content-secondary);
+}
+
+/* Give every code block, including mermaid diagrams, the code background */
+pre {
+    background-color: var(--code-background);
+}
+
+table {
+    font-family: var(--font-paragraph);
+}
+
 /* Hero Image Styles */
 .hero-image-container {
     width: 100%;
@@ -612,13 +657,4 @@ a.wikilink:hover {
         max-height: calc(100vh - 4rem);
         overflow-y: auto;
     }
-}
-
-/* Keep superscripts (e.g. footnote markers) from changing line height.
-   Copied from the typo theme, whose stylesheet with this rule isn't loaded here. */
-sup {
-    vertical-align: baseline;
-    position: relative;
-    top: -0.4em;
-    line-height: 0;
 }
