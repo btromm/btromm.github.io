@@ -22,7 +22,7 @@ description = "Personal website of Bobby Tromm"
 # heroImage = "/images/hero.jpeg"
 
 # Appearance settings
-theme = 'dark'
+theme = 'auto'
 colorPalette = 'default'
 hideHeader = true # Hide header on home page
 showTags = true
