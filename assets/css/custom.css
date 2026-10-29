@@ -69,6 +69,19 @@ pre {
     background-color: var(--code-background);
 }
 
+/* Mermaid diagrams, drawn by Pele. Theme colors already switch with light/dark. */
+pre.mermaid {
+    white-space: normal;
+    --pele-font: var(--font-paragraph), sans-serif;
+    --pele-bg: var(--code-background);
+    --pele-fg: var(--content-primary);
+    --pele-muted: var(--content-secondary);
+    --pele-line: var(--content-secondary);
+    --pele-surface: var(--background);
+    --pele-surface-alt: var(--code-border);
+    --pele-border: var(--content-secondary);
+}
+
 table {
     font-family: var(--font-paragraph);
 }
