@@ -1,5 +1,5 @@
 baseURL = 'https://btromm.github.io/'
-languageCode = 'en-us'
+locale = 'en-us'
 title = 'bobby tromm'
 theme = 'typo'
 timeout = '10m'
@@ -33,10 +33,10 @@ footerContent = "copyright &copy; 1234. made with [hugo](https://gohugo.io/) and
 # Intro on main page, content is markdown
 homeIntroTitle = ""
 homeIntroContent = """
-I'm a neuroscience and machine learning PhD student at UCL, supervised by Caswell Barry and Tim Behrens. I work on biologically plausible representations, with a focus on first-principles: given space & metabolic constraints, how should a brain represent and process information to best support adaptive behaviour?
+I am a PhD student in neuroscience and machine learning at University College London, supervised by Caswell Barry and Tim Behrens. I'm interested in how brains and machines learn abstract models of the world: what the internal representations that support flexible behaviour look like, and why they take the form they do. I use reinforcement learning and successor-representation models to work out which architectures, objectives and policies give rise to grid-like codes.
 
-Previously, I was an engineer in the [Neuronal Circuits & Brain Dynamics](https://www.neuronaldynamics.eu/) group in Paris, a visiting researcher at the
-[Centre for Eudaimonia and Human Flourishing](https://hedonia.kringelbach.org/) in Oxford, and an RA with [Eve Marder](https://sites.google.com/brandeis.edu/marder-lab/) at Brandeis.
+Previously, I was an engineer in the [Neuronal Circuits & Brain Dynamics](https://www.neuronaldynamics.eu/) group with Nikolas Karalis, worked at the
+[Centre for Eudaimonia and Human Flourishing](https://hedonia.kringelbach.org/) at the University of Oxford, with Jan Ramaekers at Maastricht University, and was an RA with [Eve Marder](https://sites.google.com/brandeis.edu/marder-lab/) at Brandeis University.
 """
 
 # Collection to display on home
