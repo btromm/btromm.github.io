@@ -5,7 +5,7 @@
     /* Typography overrides */
     --font-body: "Literata";
     --font-paragraph: "Source Sans";
-    --font-mono: "IBM Plex Mono";
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
     --h1-font-size: 1.5em;
     --h2-font-size: 1.3em;
@@ -26,10 +26,6 @@
     --breadcrumbs-font-size: 0.85rem;
     --tag-buttons-heading-font-size: 1.3rem;
     --tag-button-font-size: 1rem;
-    --form-heading-font-size: 1.1rem;
-    --form-button-font-size: 0.9rem;
-    --backlinks-heading-font-size: 1.1rem;
-    --backlinks-context-font-size: 0.9rem;
 }
 
 /* Hero Image Styles */
@@ -346,52 +342,6 @@
     max-width: 600px;
 }
 
-.form-container {
-    width: 100%;
-    text-align: center;
-    padding: 1.5rem;
-    border-radius: 8px;
-    background-color: var(--code-background, #f5f5f5);
-    border: 1px solid var(--code-border, #e0e0e0);
-}
-
-.form-heading {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: var(--form-heading-font-size);
-    color: var(--content-primary, #333);
-}
-
-.form-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-@media (min-width: 480px) {
-    .form-content {
-        flex-direction: row;
-        justify-content: center;
-    }
-}
-
-.form-content button {
-    padding: 0.6rem 1.2rem;
-    background-color: #574e5a; /* Higher contrast blue color */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-family: var(--font-body);
-    font-size: var(--form-button-font-size);
-    font-weight: 600; /* Added font weight for better contrast */
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.form-content button:hover {
-    background-color: #48414b; /* Darker blue for hover state */
-}
-
 /* Font Face Definitions */
 
 @font-face {
@@ -415,7 +365,7 @@ li::marker {
     font-family: var(--font-paragraph);
 }
 
-/* Ensure tags display in their original case */
+/* Show post tags in lowercase */
 .single-tags span a {
     text-transform: lowercase;
 }
@@ -432,66 +382,6 @@ a.wikilink {
 a.wikilink:hover {
     background-color: rgba(75, 156, 211, 0.2);
     border-bottom: 1px solid #4b9cd3;
-}
-
-/* Broken wikilinks - if needed later */
-a.wikilink.broken {
-    border-bottom: 1px dotted #ff6b6b;
-    background-color: rgba(255, 107, 107, 0.1);
-}
-
-a.wikilink.broken:hover {
-    background-color: rgba(255, 107, 107, 0.2);
-}
-
-/* Backlinks styles */
-.backlinks {
-    margin-top: 2rem;
-    padding: 1rem;
-    border-radius: 6px;
-    background-color: var(--code-background, rgba(240, 240, 240, 0.1));
-    border: 1px solid var(--code-border, rgba(200, 200, 200, 0.2));
-}
-
-.backlinks h3 {
-    margin-top: 0;
-    font-size: var(--backlinks-heading-font-size);
-    color: var(--content-primary);
-    border-bottom: 1px solid var(--content-secondary);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.backlinks ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-}
-
-.backlinks li {
-    margin-bottom: 0.8rem;
-}
-
-.backlinks a.backlink {
-    text-decoration: none;
-    font-weight: 500;
-    color: var(--content-primary);
-    border-bottom: 1px solid #4b9cd3;
-    padding: 0 2px;
-    transition:
-        border-bottom 0.3s ease,
-        background-color 0.3s ease;
-}
-
-.backlinks a.backlink:hover {
-    border-bottom: 1px solid #4b9cd3;
-    background-color: rgba(75, 156, 211, 0.1);
-}
-
-.backlinks .backlink-context {
-    font-size: var(--backlinks-context-font-size);
-    margin: 0.3rem 0 0 1rem;
-    color: var(--content-secondary);
 }
 
 /* ============================================
@@ -526,8 +416,7 @@ a.wikilink.broken:hover {
    Multi-image rows: paragraphs containing consecutive images
    Uses :has() with sibling combinator to detect multiple images
 */
-.photos-layout p:has(> .photo-inline ~ .photo-inline),
-.photos-layout p.photo-row-multi {
+.photos-layout p:has(> .photo-inline ~ .photo-inline) {
     display: flex;
     gap: var(--photos-grid-gap);
     align-items: stretch;
