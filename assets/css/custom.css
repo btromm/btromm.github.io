@@ -723,6 +723,8 @@ a.wikilink.broken:hover {
         max-height: calc(100vh - 4rem);
         overflow-y: auto;
     }
+}
+
 /* Keep superscripts (e.g. footnote markers) from changing line height.
    Copied from the typo theme, whose stylesheet with this rule isn't loaded here. */
 sup {
