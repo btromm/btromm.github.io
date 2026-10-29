@@ -1,28 +1,49 @@
-function isAuto() {
-  return document.body.classList.contains("auto");
-}
+// Light/dark toggle. head.html sets the starting theme before paint;
+// this wires up the switch, remembers a manual choice, and otherwise
+// follows the OS setting as it changes.
+(function () {
+  var root = document.documentElement;
+  var body = document.body;
+  var toggle = document.querySelector(".theme-toggle");
+  var media = window.matchMedia("(prefers-color-scheme: dark)");
 
-function setTheme() {
-  if (!isAuto()) {
-    return
+  function current() {
+    return root.classList.contains("dark") ? "dark" : "light";
   }
 
-  document.body.classList.remove("auto");
-  let cls = "light";
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    cls = "dark";
+  function apply(theme) {
+    var other = theme === "dark" ? "light" : "dark";
+    root.classList.replace(other, theme) || root.classList.add(theme);
+    body.classList.remove("auto", other);
+    body.classList.add(theme);
+    if (toggle) toggle.setAttribute("aria-checked", theme === "dark");
   }
 
-  document.body.classList.add(cls);
-}
+  function saved() {
+    try {
+      return localStorage.getItem("theme");
+    } catch (e) {
+      return null;
+    }
+  }
 
-function invertBody() {
-  document.body.classList.toggle("dark");
-  document.body.classList.toggle("light");
-}
+  apply(current());
 
-if (isAuto()) {
-  window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
-}
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      apply(next);
+      try {
+        localStorage.setItem("theme", next);
+      } catch (e) {}
+    });
+    // Only animate the knob after the first paint, so it doesn't slide on load
+    requestAnimationFrame(function () {
+      toggle.classList.add("has-transition");
+    });
+  }
 
-setTheme();
+  media.addEventListener("change", function (e) {
+    if (!saved()) apply(e.matches ? "dark" : "light");
+  });
+})();
