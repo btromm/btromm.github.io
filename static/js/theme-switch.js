@@ -1,6 +1,6 @@
 // Light/dark toggle. head.html sets the starting theme before paint;
-// this wires up the switch, remembers a manual choice, and otherwise
-// follows the OS setting as it changes.
+// this wires up the switch, remembers a manual choice, and, when the
+// site default is "auto", follows the OS setting as it changes.
 (function () {
   var root = document.documentElement;
   var body = document.body;
@@ -44,6 +44,6 @@
   }
 
   media.addEventListener("change", function (e) {
-    if (!saved()) apply(e.matches ? "dark" : "light");
+    if (!saved() && root.dataset.themeDefault === "auto") apply(e.matches ? "dark" : "light");
   });
 })();
