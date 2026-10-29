@@ -661,6 +661,68 @@ a.wikilink.broken:hover {
     --photos-img-background: var(--code-background);
 }
 
+/* ============================================
+   Table of contents on photos pages
+   Inline above the photos by default; becomes a sticky
+   sidebar only when there is room beside the photos.
+   ============================================ */
+.photos-toc {
+    max-width: var(--photos-text-width);
+    font-family: var(--font-paragraph);
+    font-size: var(--toc-font-size);
+}
+
+.photos-toc .toc-container {
+    position: static;
+    padding: 0;
+    max-height: none;
+    overflow: visible;
+}
+
+/* Sidebar mode (shared) */
+@media screen and (min-width: 1281px) {
+    .photos-contained .photos-toc {
+        position: absolute;
+        top: 0;
+        left: calc(100% + 40px);
+        width: 230px;
+        height: 100%;
+        margin: 0;
+        z-index: 10;
+    }
+}
+
+/* Wide photos are up to 1200px, so the sidebar sits outside that */
+@media screen and (min-width: 1800px) {
+    .photos-wide .photos-toc {
+        position: absolute;
+        top: 0;
+        left: calc(50% + 640px);
+        width: 230px;
+        height: 100%;
+        margin: 0;
+        z-index: 10;
+    }
+}
+
+@media screen and (min-width: 1281px) {
+    .photos-contained .photos-toc .toc-container {
+        position: sticky;
+        top: 2rem;
+        padding: 0.5rem 1rem;
+        max-height: calc(100vh - 4rem);
+        overflow-y: auto;
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    .photos-wide .photos-toc .toc-container {
+        position: sticky;
+        top: 2rem;
+        padding: 0.5rem 1rem;
+        max-height: calc(100vh - 4rem);
+        overflow-y: auto;
+    }
 /* Keep superscripts (e.g. footnote markers) from changing line height.
    Copied from the typo theme, whose stylesheet with this rule isn't loaded here. */
 sup {

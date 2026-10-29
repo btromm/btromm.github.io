@@ -36,8 +36,9 @@
   {{/* Main content container */}}
   <div class="content-wrapper">
     {{/* Table of Content with pure CSS positioning */}}
-    {{ if .Param "toc" }}
-    <aside class="toc css-sticky-toc">
+    {{/* Sidebar on wide screens, inline list above the photos otherwise */}}
+    {{ if and (.Param "toc") (strings.Contains .TableOfContents "<li>") }}
+    <aside class="toc photos-toc">
       <div class="toc-container">
         <p><strong>Table of contents</strong></p>
         {{ .TableOfContents }}
