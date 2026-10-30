@@ -286,8 +286,6 @@ table {
 
 /* Main content styling */
 .publication-title {
-    text-decoration: underline;
-    text-underline-offset: 2px;
     font-size: var(--publication-title-font-size);
     font-weight: 600;
     line-height: 1.2;
@@ -324,10 +322,6 @@ table {
 .publication-link::after {
     content: "]";
     color: var(--content-secondary);
-}
-
-.publication-title.no-link {
-    text-decoration: none;
 }
 
 .author {
@@ -829,4 +823,27 @@ body:has(.theme-toggle.has-transition) {
 
 .social-icons a:not(:last-of-type) {
     margin-inline-end: 1.1rem;
+}
+
+/* Publications shown at several venues: one line per venue, newest first */
+.publication-venues {
+    list-style: none;
+    margin: 0.25rem 0 0;
+    padding: 0;
+    font-size: var(--publication-periodical-font-size);
+    color: var(--content-secondary);
+}
+
+.publication-venues li {
+    display: flex;
+    gap: 0.75rem;
+    margin: 0.1rem 0;
+}
+
+.venue-year {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: small;
+    line-height: inherit;
+    padding-top: 0.1rem;
 }

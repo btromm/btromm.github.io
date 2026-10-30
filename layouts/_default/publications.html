@@ -2,7 +2,9 @@
 {{ if not .IsHome }}{{ partial "breadcrumbs.html" . }}{{ end }}
 
 {{/* Publications grouped by kind (papers, preprints, posters...), newest first.
-     Your own name is bolded using the publicationsHighlight pattern in hugo.toml. */}}
+     An entry has either `periodical` + `year`, or a `venues` list when it was
+     presented in several places. Your own name is bolded using the
+     publicationsHighlight pattern in hugo.toml. */}}
 {{ $all := .Params.publications }}
 {{ $highlight := site.Params.publicationsHighlight }}
 
@@ -13,17 +15,22 @@
         </div>
         <div class="single-content">
             {{ range .Params.kinds }}
-            {{ $entries := sort (where $all "kind" .key) "year" "desc" }}
+
+            {{/* Sort each entry by its year, or by its latest venue's year */}}
+            {{ $entries := slice }}
+            {{ range where $all "kind" .key }}
+            {{ $year := int (.year | default 0) }}
+            {{ range .venues }}{{ if gt (int .year) $year }}{{ $year = int .year }}{{ end }}{{ end }}
+            {{ $entries = $entries | append (dict "pub" . "year" $year) }}
+            {{ end }}
+
             {{ if $entries }}
             <h2 class="publication-year-heading">{{ .title }}</h2>
 
-            {{ range $entries }}
+            {{ range sort $entries "year" "desc" }}
+            {{ with .pub }}
             <div class="publication-entry">
-                {{ if .url }}
-                <a href="{{ .url }}" class="publication-title">{{ .title }}</a>
-                {{ else }}
-                <span class="publication-title no-link">{{ .title }}</span>
-                {{ end }}
+                <span class="publication-title">{{ .title }}</span>
 
                 <div class="publication-meta">
                     {{ $authors := .author | htmlEscape }}
@@ -31,20 +38,27 @@
                     {{ $authors = replaceRE . "<strong>$0</strong>" $authors }}
                     {{ end }}
                     <div class="author">{{ $authors | safeHTML }}</div>
+
+                    {{ with .venues }}
+                    <ul class="publication-venues">
+                        {{ range sort . "year" "desc" }}
+                        <li><span class="venue-year">{{ .year }}</span> <em>{{ .name }}</em></li>
+                        {{ end }}
+                    </ul>
+                    {{ else }}
                     <div class="periodical">
                         <em>{{ .periodical }}</em>, {{ .year }}
                     </div>
+                    {{ end }}
                 </div>
 
-                {{ if or .pdf .code .doi .poster }}
+                {{ with .link }}
                 <div class="publication-links">
-                    {{ with .pdf }}<a href="{{ . }}" class="publication-link" target="_blank" rel="noopener">pdf</a>{{ end }}
-                    {{ with .code }}<a href="{{ . }}" class="publication-link" target="_blank" rel="noopener">code</a>{{ end }}
-                    {{ with .poster }}<a href="{{ . }}" class="publication-link" target="_blank" rel="noopener">poster</a>{{ end }}
-                    {{ with .doi }}<a href="https://doi.org/{{ . }}" class="publication-link" target="_blank" rel="noopener">doi</a>{{ end }}
+                    <a href="{{ . }}" class="publication-link" target="_blank" rel="noopener">link</a>
                 </div>
                 {{ end }}
             </div>
+            {{ end }}
             {{ end }}
             {{ end }}
             {{ end }}
