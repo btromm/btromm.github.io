@@ -3,8 +3,7 @@ aliases:
   - /posts/self-studying-mathematics/
 title: Self-studying mathematics
 tags:
-  - math
-toc: true
+toc: false
 math: true
 date: 2025-04-25
 ---

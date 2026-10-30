@@ -2,9 +2,7 @@
 aliases:
   - /posts/an-update-on-my-self-studying/
 title: An update on my self-studying
-tags:
-  - math
-toc: true
+toc: false
 math: true
 date: 2025-12-09
 ---
