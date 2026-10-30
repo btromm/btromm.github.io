@@ -33,29 +33,37 @@
 </div>
 {{ end }}
 
-{{/* Collection Section */}}
-{{ if .Site.Params.homeCollection }}
-<div class="list-container">
-    {{ with .Site.Params.homeCollectionTitle}}
-    <h1> {{ . }} </h1>
+{{/* News, from data/news.yaml */}}
+{{ with hugo.Data.news }}
+<div class="list-container home-news">
+    <h1>{{ site.Params.homeNewsTitle | default "news" }}</h1>
+    {{ range first (site.Params.homeNewsCount | default 6) . }}
+    <div class="post-line">
+        <p class="line-date">{{ .date }}</p>
+        <p class="line-title news-text">{{ .text | markdownify }}</p>
+    </div>
     {{ end }}
-
-    {{ $pages := where .Site.RegularPages "Section" .Site.Params.homeCollection }}
-
-    {{ $paginationSize := 1}}
-    {{ if (gt .Site.Params.paginationSize 0) }}
-    {{ $paginationSize = .Site.Params.paginationSize }}
-    {{ end }}
-
-    {{ $paginator := .Paginate $pages $paginationSize }}
-
-    {{ range $index, $page := $paginator.Pages }}
-    {{ partial "post-entry.html" $page}}
-    {{ end }}
-
-    {{ partial "pagination-controls.html" $paginator}}
-
 </div>
+{{ end }}
+
+{{/* Latest posts */}}
+{{ with .Site.Params.homeCollection }}
+{{ $pages := where site.RegularPages "Section" . }}
+{{ with $pages }}
+<div class="list-container">
+    {{ with site.Params.homeCollectionTitle }}
+    <h1>{{ . }}</h1>
+    {{ end }}
+
+    {{ range first (site.Params.homeCollectionCount | default 3) $pages }}
+    {{ partial "post-entry.html" . }}
+    {{ end }}
+
+    {{ if gt (len $pages) (site.Params.homeCollectionCount | default 3) }}
+    <p class="home-more"><a href="{{ "posts/" | relURL }}">all posts →</a></p>
+    {{ end }}
+</div>
+{{ end }}
 {{ end }}
 
 {{ end }}

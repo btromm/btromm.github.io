@@ -28,7 +28,10 @@ hideHeader = true # Hide header on home page
 showTags = true
 
 showFooter = true
-footerContent = "copyright &copy; 1234. made with [hugo](https://gohugo.io/) and [typo](https://github.com/tomfran/typo)"
+footerContent = "[resources](/resources) &middot; copyright &copy; 1234. made with [hugo](https://gohugo.io/) and [typo](https://github.com/tomfran/typo)"
+
+# Role and affiliation line under the name on the home page (markdown)
+homeSubtitle = "PhD student in neuroscience & machine learning · University College London"
 
 # Intro on main page, content is markdown
 homeIntroTitle = ""
@@ -38,9 +41,16 @@ I am a PhD student in neuroscience and machine learning at University College Lo
 Before my PhD, I was a research engineer in Nikolas Karalis's [Neuronal Circuits & Brain Dynamics](https://www.neuronaldynamics.eu/) group at the Paris Brain Institute. Earlier, I was a visiting researcher at the University of Oxford's [Centre for Eudaimonia and Human Flourishing](https://hedonia.kringelbach.org/), and a research assistant with Jan Ramaekers at Maastricht University and in [Eve Marder's lab](https://sites.google.com/brandeis.edu/marder-lab/) at Brandeis University.
 """
 
-# Collection to display on home
-homeCollectionTitle = 'recent'
+# News on home comes from data/news.yaml (newest first)
+homeNewsTitle = 'news'
+
+# Latest posts shown on home, under the news
+homeCollectionTitle = 'writing'
 homeCollection = 'posts'
+homeCollectionCount = 3
+
+# Bolded in publication author lists (regular expression)
+publicationsHighlight = '(Robert|R\.) Tromm'
 
 # Lists parameters
 paginationSize = 100
@@ -70,14 +80,10 @@ url = "https://scholar.google.com/citations?user=hJl27VcAAAAJ&hl=en"
 name = "twitter"
 url = "https://x.com/b_tromm"
 
-# Main menu pages
+# Main menu pages (research first; resources lives in the footer)
 [[params.menu]]
-name = "posts"
-url = "/posts"
-
-[[params.menu]]
-name = "resources"
-url = "/resources"
+name = "research"
+url = "/research"
 
 [[params.menu]]
 name = "publications"
@@ -86,6 +92,10 @@ url = "/publications"
 [[params.menu]]
 name = "cv"
 url = "/pdf/cv.pdf"
+
+[[params.menu]]
+name = "posts"
+url = "/posts"
 
 [[params.menu]]
 name = "photos"

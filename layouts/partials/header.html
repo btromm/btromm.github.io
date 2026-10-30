@@ -9,6 +9,10 @@
         <a href="{{ site.BaseURL }}">{{ site.Title }}</a>
     </h1>
 
+    {{ if .IsHome }}{{ with site.Params.homeSubtitle }}
+    <div class="header-subtitle">{{ . | markdownify }}</div>
+    {{ end }}{{ end }}
+
     <div class="flex">
         {{ $currentPage := . }}
 
