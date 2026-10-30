@@ -84,8 +84,8 @@ label = "scholar"
 url = "https://scholar.google.com/citations?user=hJl27VcAAAAJ&hl=en"
 
 [[params.social]]
-name = "twitter"
-label = "x / twitter"
+name = "x"
+label = "x"
 url = "https://x.com/b_tromm"
 
 # Main menu pages
