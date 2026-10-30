@@ -28,7 +28,7 @@
 {{- if .IsHome -}}
 <meta name="description" content="{{ site.Params.Description }}"/>
 {{- else -}}
-<meta name="description" content="{{ .Params.Description }}"/>
+<meta name="description" content="{{ .Params.Description | default site.Params.Description }}"/>
 {{- end }}
 
 {{ if .Param "fediverse" }}

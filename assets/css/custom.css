@@ -763,8 +763,8 @@ body:has(.theme-toggle.has-transition) {
 }
 
 .home-news .line-date {
-    min-width: 70px;
-    max-width: 70px;
+    min-width: 92px;
+    max-width: 92px;
 }
 
 .news-text {
@@ -775,4 +775,58 @@ body:has(.theme-toggle.has-transition) {
     margin-top: 0.75rem;
     font-family: var(--font-mono);
     font-size: small;
+}
+
+/* Photo beside the home intro */
+.home-photo {
+    float: right;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    margin: 0.25rem 0 1rem 1.75rem;
+    border-radius: 8px;
+}
+
+.intro::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .home-photo {
+        float: none;
+        display: block;
+        width: 120px;
+        height: 120px;
+        margin: 0 0 1rem 0;
+    }
+}
+
+/* Small labels next to the social icons */
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.social-icons a svg {
+    flex-shrink: 0;
+}
+
+.social-label {
+    font-family: var(--font-mono);
+    font-size: small;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+}
+
+.social-icons a:not(:last-of-type) {
+    margin-inline-end: 1.1rem;
 }

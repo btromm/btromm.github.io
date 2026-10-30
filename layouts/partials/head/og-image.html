@@ -1,0 +1,4 @@
+{{- /* Link-preview image: your photo, once static/<homePhoto> exists */ -}}
+{{- with site.Params.homePhoto -}}
+  {{- if fileExists (path.Join "static" .) -}}{{- . | absURL -}}{{- end -}}
+{{- end -}}

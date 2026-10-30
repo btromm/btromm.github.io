@@ -16,7 +16,7 @@ tag = 'tags'
 
 [params]
 # Meta description
-description = "Personal website of Bobby Tromm"
+description = "Bobby (Robert) Tromm, PhD student in neuroscience and machine learning at UCL with Caswell Barry and Tim Behrens, working on cognitive maps and grid codes."
 
 # Hero image (path relative to static folder)
 # heroImage = "/images/hero.jpeg"
@@ -28,7 +28,11 @@ hideHeader = true # Hide header on home page
 showTags = true
 
 showFooter = true
-footerContent = "[resources](/resources) &middot; copyright &copy; 1234. made with [hugo](https://gohugo.io/) and [typo](https://github.com/tomfran/typo)"
+footerContent = "[resources](/resources) &middot; &copy; 2026 Bobby Tromm. made with [hugo](https://gohugo.io/) and [typo](https://github.com/tomfran/typo)"
+
+# Photo beside the intro and in link previews (path inside static/).
+# Nothing shows until the file exists.
+homePhoto = "/images/headshot.jpg"
 
 # Role and affiliation line under the name on the home page (markdown)
 homeSubtitle = "PhD student in neuroscience & machine learning · University College London"
@@ -66,18 +70,22 @@ home = "Home"
 # Social icons
 [[params.social]]
 name = "gmail"
+label = "email"
 url = "mailto:robert.tromm.25@ucl.ac.uk"
 
 [[params.social]]
 name = "github"
+label = "github"
 url = "https://github.com/btromm"
 
 [[params.social]]
 name = "googlescholar"
+label = "scholar"
 url = "https://scholar.google.com/citations?user=hJl27VcAAAAJ&hl=en"
 
 [[params.social]]
 name = "twitter"
+label = "x / twitter"
 url = "https://x.com/b_tromm"
 
 # Main menu pages (research first; resources lives in the footer)
