@@ -1,4 +1,6 @@
 ---
+aliases:
+  - /posts/self-studying-mathematics/
 title: Self-studying mathematics
 tags:
   - math

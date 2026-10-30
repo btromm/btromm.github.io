@@ -1,4 +1,6 @@
 ---
+aliases:
+  - /posts/an-update-on-my-self-studying/
 title: An update on my self-studying
 tags:
   - math

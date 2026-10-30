@@ -67,7 +67,7 @@
     {{ end }}
 
     {{ if gt (len $pages) (site.Params.homeCollectionCount | default 3) }}
-    <p class="home-more"><a href="{{ "posts/" | relURL }}">all posts →</a></p>
+    <p class="home-more"><a href="{{ "writing/" | relURL }}">all writing →</a></p>
     {{ end }}
 </div>
 {{ end }}

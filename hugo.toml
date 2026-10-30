@@ -28,7 +28,7 @@ hideHeader = true # Hide header on home page
 showTags = true
 
 showFooter = true
-footerContent = "[resources](/resources) &middot; &copy; 2026 Bobby Tromm. made with [hugo](https://gohugo.io/) and [typo](https://github.com/tomfran/typo)"
+footerContent = "&copy; 2026 Bobby Tromm. made with [hugo](https://gohugo.io/) and [typo](https://github.com/tomfran/typo)"
 
 # Photo beside the intro and in link previews (path inside static/).
 # Nothing shows until the file exists.
@@ -50,7 +50,7 @@ homeNewsTitle = 'news'
 
 # Latest posts shown on home, under the news
 homeCollectionTitle = 'writing'
-homeCollection = 'posts'
+homeCollection = 'writing'
 homeCollectionCount = 3
 
 # Bolded in publication author lists (regular expression)
@@ -88,11 +88,7 @@ name = "twitter"
 label = "x / twitter"
 url = "https://x.com/b_tromm"
 
-# Main menu pages (research first; resources lives in the footer)
-[[params.menu]]
-name = "research"
-url = "/research"
-
+# Main menu pages
 [[params.menu]]
 name = "publications"
 url = "/publications"
@@ -102,8 +98,12 @@ name = "cv"
 url = "/pdf/cv.pdf"
 
 [[params.menu]]
-name = "posts"
-url = "/posts"
+name = "writing"
+url = "/writing"
+
+[[params.menu]]
+name = "resources"
+url = "/resources"
 
 [[params.menu]]
 name = "photos"

@@ -1,5 +1,7 @@
 ---
 title: "research"
+# Not published yet: preview it locally with `hugo server -D`
+draft: true
 ---
 
 My PhD asks how brains and machines build **cognitive maps**: internal models of the world that support flexible behaviour. I'm especially interested in grid cells, and in why such codes take the form they do.
