@@ -1,4 +1,6 @@
 ---
+aliases:
+  - /posts/sourdough/
 title: Sourdough
 date: 2024-01-08
 summary:

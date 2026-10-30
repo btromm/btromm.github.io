@@ -1,5 +1,10 @@
-{{ define "main" }} {{ if not .IsHome }} {{ partial "breadcrumbs.html" . }} {{
-end }}
+{{ define "main" }}
+{{ if not .IsHome }}{{ partial "breadcrumbs.html" . }}{{ end }}
+
+{{/* Publications grouped by kind (papers, preprints, posters...), newest first.
+     Your own name is bolded using the publicationsHighlight pattern in hugo.toml. */}}
+{{ $all := .Params.publications }}
+{{ $highlight := site.Params.publicationsHighlight }}
 
 <div class="content-wrapper">
     <div class="main-content">
@@ -7,41 +12,41 @@ end }}
             <h1 class="single-title">{{ .Title }}</h1>
         </div>
         <div class="single-content">
-            {{ $publications := .Params.publications }} {{ $lastYear := 0 }} {{
-            range $publications }} {{ if ne .year $lastYear }}
-            <h2 class="publication-year-heading">{{ .year }}</h2>
-            {{ $lastYear = .year }} {{ end }}
+            {{ range .Params.kinds }}
+            {{ $entries := sort (where $all "kind" .key) "year" "desc" }}
+            {{ if $entries }}
+            <h2 class="publication-year-heading">{{ .title }}</h2>
 
+            {{ range $entries }}
             <div class="publication-entry">
+                {{ if .url }}
                 <a href="{{ .url }}" class="publication-title">{{ .title }}</a>
+                {{ else }}
+                <span class="publication-title no-link">{{ .title }}</span>
+                {{ end }}
 
                 <div class="publication-meta">
-                    <div class="author">{{ .author }}</div>
+                    {{ $authors := .author | htmlEscape }}
+                    {{ with $highlight }}
+                    {{ $authors = replaceRE . "<strong>$0</strong>" $authors }}
+                    {{ end }}
+                    <div class="author">{{ $authors | safeHTML }}</div>
                     <div class="periodical">
                         <em>{{ .periodical }}</em>, {{ .year }}
                     </div>
                 </div>
 
-                {{ if or .pdf .code }}
+                {{ if or .pdf .code .doi .poster }}
                 <div class="publication-links">
-                    {{ if .pdf }}
-                    <a
-                        href="{{ .pdf }}"
-                        class="publication-link"
-                        target="_blank"
-                        >PDF</a
-                    >
-                    {{ end }} {{ if .code }}
-                    <a
-                        href="{{ .code }}"
-                        class="publication-link"
-                        target="_blank"
-                        >Code</a
-                    >
-                    {{ end }}
+                    {{ with .pdf }}<a href="{{ . }}" class="publication-link" target="_blank" rel="noopener">pdf</a>{{ end }}
+                    {{ with .code }}<a href="{{ . }}" class="publication-link" target="_blank" rel="noopener">code</a>{{ end }}
+                    {{ with .poster }}<a href="{{ . }}" class="publication-link" target="_blank" rel="noopener">poster</a>{{ end }}
+                    {{ with .doi }}<a href="https://doi.org/{{ . }}" class="publication-link" target="_blank" rel="noopener">doi</a>{{ end }}
                 </div>
                 {{ end }}
             </div>
+            {{ end }}
+            {{ end }}
             {{ end }}
         </div>
     </div>

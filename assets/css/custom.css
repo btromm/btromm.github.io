@@ -52,6 +52,26 @@
 
 .header p {
     margin-top: var(--header-menu-top-gap);
+    margin-bottom: 0;
+}
+
+/* Let the menu wrap tightly on narrow screens */
+.header .flex {
+    flex-wrap: wrap;
+}
+
+/* Role and affiliation line under the name, home page only */
+.header-subtitle {
+    margin-top: 0.35rem;
+    font-family: var(--font-paragraph);
+    font-size: 1.05rem;
+    color: var(--content-secondary);
+}
+
+.header-subtitle p {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 .social-icons {
@@ -252,8 +272,8 @@ table {
 
 .publication-entry {
     display: block;
-    margin-bottom: 3rem;
-    padding-bottom: 2.5rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--code-border);
     position: relative;
     width: 100%;
@@ -289,23 +309,25 @@ table {
 }
 
 .publication-link {
-    padding: 0.5rem 1.25rem;
-    background-color: var(--code-background);
+    font-family: var(--font-mono);
+    font-size: small;
     color: var(--content-primary);
-    border: 1px solid var(--code-border);
-    border-radius: 6px;
-    font-family: var(--font-body);
-    font-size: var(--publication-link-font-size);
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.2s ease;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
-.publication-link:hover {
-    background-color: var(--code-border);
-    border-color: var(--content-secondary);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+.publication-link::before {
+    content: "[";
+    color: var(--content-secondary);
+}
+
+.publication-link::after {
+    content: "]";
+    color: var(--content-secondary);
+}
+
+.publication-title.no-link {
+    text-decoration: none;
 }
 
 .author {
@@ -733,4 +755,78 @@ body:not(:has(.header-title)) .theme-toggle {
 /* Fade colours when switching (only once the toggle is ready, so no fade on load) */
 body:has(.theme-toggle.has-transition) {
     transition: background-color 0.2s, color 0.2s;
+}
+
+/* Home page news list: same date column as the post list */
+.home-news {
+    padding-bottom: 1.5rem;
+}
+
+.home-news .line-date {
+    min-width: 92px;
+    max-width: 92px;
+}
+
+.news-text {
+    line-height: var(--p-line-height);
+}
+
+.home-more {
+    margin-top: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: small;
+}
+
+/* Photo beside the home intro */
+.home-photo {
+    float: right;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    margin: 0.25rem 0 1rem 1.75rem;
+    border-radius: 8px;
+}
+
+.intro::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .home-photo {
+        float: none;
+        display: block;
+        width: 120px;
+        height: 120px;
+        margin: 0 0 1rem 0;
+    }
+}
+
+/* Small labels next to the social icons */
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.social-icons a svg {
+    flex-shrink: 0;
+}
+
+.social-label {
+    font-family: var(--font-mono);
+    font-size: small;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+}
+
+.social-icons a:not(:last-of-type) {
+    margin-inline-end: 1.1rem;
 }
