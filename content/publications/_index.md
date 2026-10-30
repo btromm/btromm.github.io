@@ -35,7 +35,7 @@ publications:
         name: "ALPS 2023, University of Geneva"
   - kind: poster
     title: "Dual homeostatic mechanisms can reproduce diverse ion channel correlations"
-    author: "Robert Tromm, C. Guerini, S. Gorur-Shandilya, and E. Marder"
+    author: "Robert Tromm, Cosmo Guerini, Srinivas Gorur-Shandilya, Eve Marder"
     periodical: "SciFest IX, Brandeis University"
     year: 2019
 ---
