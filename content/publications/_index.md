@@ -20,7 +20,7 @@ kinds:
     title: talks
 publications:
   - kind: paper
-    title: "The Role of the Dorsolateral Prefrontal Cortex in Ego Dissolution and Emotional Arousal During the Psychedelic State"
+    title: "The role of the dorsolateral prefrontal cortex in ego dissolution and emotional arousal during the psychedelic state"
     author: "Clayton R Coleman, Kenneth Shinozuka, Robert Tromm, Ottavia Dipasquale, Mendel Kaelen, Leor Roseman, Suresh Muthukumaraswamy, David J. Nutt, Lionel Barnett, Robin Carhart-Harris"
     periodical: "Human Brain Mapping"
     year: 2025
@@ -34,7 +34,7 @@ publications:
       - year: 2023
         name: "ALPS 2023, University of Geneva"
   - kind: poster
-    title: "Dual homeostatic mechanisms can reproduce diverse ion channel correlations"
+    title: "Dual homeostatic mechanisms reproduce diverse ion channel correlations"
     author: "Robert Tromm, Cosmo Guerini, Srinivas Gorur-Shandilya, Eve Marder"
     periodical: "SciFest IX, Brandeis University"
     year: 2019
